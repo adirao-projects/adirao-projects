@@ -2,7 +2,7 @@
 - 👀 I’m mainly interested in backend technologies, but my primary focus is in physics and mathematics.
 - 🌱 I’m currently a student at the University of Toronto for Physics and Mathematics (with CS).
 - 💞️ I’m looking to collaborate on anything that's pretty cool.
-- 📫 You can reach me mainly through my github
+- 📫 You can reach me mainly through my github, but here's my new twitter: @adiraowastaken
 
 <!---
 adirao-projects/adirao-projects is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
