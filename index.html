@@ -12,22 +12,32 @@
 </head>
 
 <body class='light'>
+    <div id="theme">
+        <button id="theme-button" class="tooltip" onclick="toggleTheme()"></button>
+    </div>
     <div id="content">
-        <div style='text-align: center;'>
-            <h1>ADI RAO</h1>
-            <span style='font-size:1.5rem; width:10%; font-weight:200;'>
-                My github homepage
-            </span>
-            <br>
-            <br>
+        <h1>ADITYA K. RAO</h1>
+        <div class="line"></div>
+        <!--
+        <div id="nav-list">
+            <div class="nav-element" id="nav-home"><a href="#home">Home</a></div>
+            <div class="nav-element" id="nav-resume"><a href="#resume">Resume</a></div>
+            <div class="nav-element" id="nav-portfolio"><a href="#publications">Publications & Portfolio</a></div>
+            <div class="nav-element" id="nav-blog"><a href="#blog">Posts & Creative Work</a></div>
+            <div class="nav-element" id="nav-book"><a href="#booking">Booking</a></div>
         </div>
-        <div class='authors'>
-            <div id='author-1' class='author-new'>
-                <br>
-                <div class='author-image'><img class='author-image-data-new' src='resources/button.jpg'></div>
-                <br>
-                <div class='author-name'><b>ADI RAO</b></div>
-                <div class='author-about'>
+        -->
+        <div id="nav-list">
+            <div class="nav-element" id="nav-home">Home</div>
+            <div class="nav-element" id="nav-resume">Resume</div>
+            <div class="nav-element" id="nav-portfolio">Publications & Portfolio</div>
+            <div class="nav-element" id="nav-blog">Posts & Creative Work</div>
+            <div class="nav-element" id="nav-book">Booking</div>
+        </div>
+        <div class="line"></div>
+        
+        <div id="overview">
+            <div id="about", class="author-about">
                     <p style="font-size: 1.5rem;">
                         👋 Hi, I'm Adi (@adirao-projects) 
                         <br>
@@ -43,22 +53,45 @@
                         📫 You can reach me mainly through my github, but here's 
                         my new twitter: <a href="https://twitter.com/adiraowastaken">@adiraowastaken</a>
                     </p>
-                </div>
+            </div>
+            <div id="picture">
+                <img id='image-data' src='resources/button.jpg'>
             </div>
         </div>
-        <br>
-        <br>
-        <div id='highlighted-projects' class='project-list'>
-            <a href='policy.html' class='project-link'>
-                <div class='project-highlighted'>
-                    <label>POLICY</label>
-                </div>
-            </a>
-            <a href='https://utoronto.simplyvoting.com/' target='_blank' class='project-link'>
-                <div class='project-highlighted'>
-                    <label>VOTE</label>
-                </div>
-            </a>
+
+        <div class="line"></div>
+
+        <div id="highlighted-projects" class="project-list">
+            <a href="https://projects.thefilmconsole.com/pages/ToDoPlus/ToDoPlus.html" target="_blank" class="project-link">
+                    <div class="project-highlighted">
+                        <label>ToDo+</label>
+                        <label style="font-size:0.7rem;">Created by Aviraj Newatia</label>
+                    </div>
+                </a>
+                <a href="https://projects.thefilmconsole.com/pages/Moneymize/Moneymize.html" target="_blank" class="project-link">
+                    <div class="project-highlighted">
+                        <label>Moneymize</label>
+                        <label style="font-size:0.7rem;">Created by Arnav Jagetia</label>
+                    </div>
+                </a>
+                <a href="https://projects.thefilmconsole.com/pages/EasyBookManager/EasyBookManager.html" target="_blank" class="project-link">
+                    <div class="project-highlighted">
+                        <label>Easy Book Manager</label>
+                        <label style="font-size:0.7rem;">Created by Aditya Rao</label>
+                    </div>
+                </a>
+        
+            </div>
+        <div class="line"></div>
+        <div id="contact">
+
         </div>
     </div>
+
+    <footer>
+        <h5>
+            Hosting coutesy of <a href="http://thefilmconsole.com" target="_blank">TheFilmConsole.com</a>
+        </h5>
+    </footer>
+    <script src="main.js"></script>
 </body>

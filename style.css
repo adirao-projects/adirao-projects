@@ -6,10 +6,6 @@
     src: url('resources/GothamBook.ttf')
 }
 
-
-/*Defaulword
-ts for the entire page, change these, and you can change almost all the colors*/
-
 :root {
     font-size: 16px;
     font-family: 'font-fam';
@@ -18,24 +14,89 @@ ts for the entire page, change these, and you can change almost all the colors*/
 }
 
 .light {
-    --text-primary: #A5C1C4;
-    --text-secondary: #A5C1C4;
-    --text-theme: #A5C1C4;
-    --bg-primary: #A5C2C3;
-    --bg-theme: #1C4B51;
-    /*#2A2A2A*/
-    ;
-    --bg-secondary: #EFE8D5/*1F1F1F*/
-    ;
-    --theme-accent: #a72c0e;
-    --theme-accent-alt: #7496a2;
-    --theme-button: #FFFFFF;
-    --theme-button-solar: #FDF6E3;
-    transition: 1000ms all;
+    --text-primary: #1F1F1F;
+    --text-secondary: #1A1A1A;
+    --bg-primary: #EFE8D5;
+    --bg-secondary: #F3F3F3;
+    --theme-accent: #2D5794;
+    --theme-button: #1F1F1F;
 }
 
+.dark {
+    --text-primary: #EFE8D5;
+    --text-secondary: #F3F3F3;
+    --bg-primary: #1F1F1F;
+    --bg-secondary: #1A1A1A;
+    --theme-accent: #2D5794;
+    --theme-button: #FDF6E3;
+}
 
-/*Change color and look of scrollbar*/
+.line {
+    margin:5px 0;
+    height:20px;
+    background: repeating-linear-gradient(90deg,var(--theme-accent) 0 10px,#0000 0 12px) bottom;
+    background-size:100% 2px;
+    background-repeat:no-repeat;
+}
+
+#nav-list {
+    grid-template-rows: auto;
+    /* grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); */
+    grid-template-columns: 1fr;
+    grid-auto-flow:dense;
+    column-gap: 20px;
+    flex-direction: row;
+    justify-content: start;
+    display: flex;
+    grid-column: 1; /* take the explicit one */
+}
+
+.nav-element {
+    border:2px dashed var(--text-primary);
+    padding: 10px;
+}
+.nav-element:hover {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    /* border:2px dashed var(--theme-accent); */
+}
+
+#overview {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    /* grid-gap:20px; */
+}
+
+#about {
+    width: 80%;
+    padding: 1rem;
+    text-align: justify;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 100;
+}
+
+#picture {
+    justify-content: center;
+    margin:auto;
+    width: 15rem;
+    float: left;
+}
+
+#image-data {
+    -webkit-animation: bgcolorchange 3s;
+    /* Chrome, Safari, Opera */
+    width: 100%;
+    border-radius: 50%;
+    border: 3px solid var(--theme-accent);
+}
+
+#image-data:hover {
+    width: 100%;
+    border-radius: 50%;
+    border: 3px solid var(--text-primary);
+    transition: 500ms;
+}
 
 ::-webkit-scrollbar {
     width: 10px;
@@ -49,7 +110,7 @@ ts for the entire page, change these, and you can change almost all the colors*/
 }
 
 ::selection {
-    color: var(--text-theme);
+    color: #EFE8D5;
     background: var(--theme-accent);
 }
 
@@ -60,6 +121,7 @@ ts for the entire page, change these, and you can change almost all the colors*/
 
 h1 {
     font-size: 3.5rem;
+    line-height:0.7em;
 }
 
 p {
@@ -81,7 +143,7 @@ a:visited {
 }
 
 a:hover {
-    color: var(--text-secondary);
+    color: var(--bg-primary);
     text-decoration: underline;
 }
 
@@ -89,12 +151,9 @@ a:hover {
     text-decoration: none;
 }
 
-
-/*https://fireship.io/lessons/three-responsive-css-grid-layouts/*/
-
 body {
-    color: var(--text-theme);
-    background: var(--bg-theme);
+    color: var(--text-primary);
+    background: var(--bg-primary);
     /*background: var(--text-theme);*/
     padding: 3rem;
     padding-top: 0rem;
@@ -102,8 +161,41 @@ body {
     transition: 1000ms;
 }
 
+footer{
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    padding:5px;
+    border: 2px dashed var(--theme-accent);
+    border-radius: 2px;
+    margin-top:30px;
+    padding-bottom:0px;
+}
+#theme {
+    position:fixed;
+    z-index:2;
+}
+
+#theme-button {
+    border: 2px solid var(--theme-accent); 
+    background-color: var(--theme-button);
+
+    height:2rem; 
+    width:2rem; 
+
+    border-radius:50%; 
+    float:left;
+
+    box-shadow: rgba(3,8,20,0.3) 0px 0.15rem 0.5rem, rgba(3,8,20,0.3) 0px 0.075rem 0.175rem;
+}
+
+#theme-button:hover {
+    border: 2px solid var(--text-primary); 
+    /*background-color: var(--text-primary);*/
+    transition:500ms all;
+}
+
 #content {
-    padding: 7rem;
+    padding: 4rem;
     padding-top: 0rem;
 }
 
@@ -149,90 +241,6 @@ body {
 
 /*Set the background of the body*/
 
-main {
-    padding: 1rem 1rem 1rem 1rem;
-}
-
-.authors {
-    margin: auto auto;
-    display: grid;
-    column-gap: 1rem;
-    grid-template-columns: 1fr;
-}
-
-.author {
-    background-color: var(--bg-theme);
-    /*
-    padding:2rem;
-    padding-top:0.5rem;
-    */
-    border: 3px solid var(--theme-accent);
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: top;
-    align-items: center;
-    font-size: 2rem;
-    color: var(--text-primary);
-    box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
-    height: 100%;
-    width: 100%;
-    /*
-    width:30%;
-    margin:1.5%;
-    */
-    display: flex;
-    flex-direction: column;
-}
-
-.author:hover {
-    color: var(--bg-theme);
-    background-color: var(--theme-accent);
-    transition: 600ms;
-    cursor: default;
-    /*
-    border-color: var(--text-primary);
-    */
-}
-
-.author-final {
-    color: var(--text-theme);
-    background-color: var(--theme-accent);
-    transition: 600ms;
-    cursor: default;
-    /*
-    border-color: var(--text-primary);
-    */
-}
-
-.author-new {
-    -webkit-animation: bgcolorchange 3s;
-    /* Chrome, Safari, Opera */
-    animation: 3s 1 bgcolorchange;
-    /*
-    padding:2rem;
-    padding-top:0.5rem;
-    */
-    border: 3px solid var(--theme-accent);
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: top;
-    align-items: center;
-    font-size: 2rem;
-    color: var(--text-primary);
-    box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
-    height: 100%;
-    width: 100%;
-    /*
-    width:30%;
-    margin:1.5%;
-    */
-    display: flex;
-    flex-direction: column;
-    background-color: var(--theme-accent);
-}
-
 @keyframes bgcolorchange {
     0% {
         background-color: var(--bg-theme);
@@ -244,133 +252,10 @@ main {
     }
 }
 
-.author:hover .author-image-data {
-    transition: 600ms;
-    border: 3px solid var(--bg-theme)
-    /*
-    border-color: var(--text-primary);
-    */
-}
-
-.author-image-data-new {
-    -webkit-animation: bgcolorchange 3s;
-    /* Chrome, Safari, Opera */
-    animation: 3s 1 bgcolorchange;
-    width: 100%;
-    border-radius: 50%;
-    border: 3px solid var(--bg-theme)
-}
-
-@keyframes author-image-anim {
-    0% {
-        border: 3px solid var(--theme-accent);
-    }
-    100% {
-        border: 3px solid var(--bg-theme)
-    }
-}
-
-
-/*
-.author:hover {
-    color:var(--bg-secondary);
-    background-color: var(--text-primary);
-    transition:600ms;
-}
-*/
-
-.author-name {
-    /*text-decoration: underline;*/
-    -webkit-text-decoration-color: var(--theme-accent);
-    /* safari still uses vendor prefix */
-    text-decoration-color: var(--theme-accent);
-    display: inline-block;
-}
-
-.author-name:hover {
-    text-decoration: underline;
-    -webkit-text-decoration-color: var(--text-primary);
-    /* safari still uses vendor prefix */
-    text-decoration-color: var(--text-primary);
-    display: inline-block;
-    transition: 600ms;
-    cursor: default;
-}
-
-.author-image {
-    width: 15rem;
-    margin-right: 2%;
-    float: left;
-}
-
-.author-image-data {
-    width: 100%;
-    border-radius: 50%;
-    border: 3px solid var(--theme-accent);
-}
-
-.author-image-data:hover {
-    width: 100%;
-    border-radius: 50%;
-    border: 3px solid var(--bg-theme);
-    transition: 500ms;
-}
-
-.author-about {
-    width: 80%;
-    padding: 1rem;
-    text-align: justify;
-    justify-content: center;
-    font-size: 1rem;
-    font-weight: 100;
-}
-
-.author-project-list {
-    display: grid;
-    gap: 1rem;
-    width: 80%;
-    justify-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-}
-
-.author-project {
-    font-size: 1rem;
-    border-radius: 4px;
-    background-color: var(--theme-accent-alt);
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0.25rem;
-    color: #fff;
-    box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
-    border-radius: 4px;
-    transition: all 500ms;
-}
-
-.project-list {
+#highlighted-projects {
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax( 240px, 3fr));
-}
-
-.project {
-    font-size: 1.5rem;
-    border-radius: 4px;
-    background-color: var(--theme-accent-alt);
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0.25rem;
-    color: #fff;
-    box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
-    border-radius: 4px;
-    transition: all 500ms;
 }
 
 .project-highlighted {
@@ -390,8 +275,6 @@ main {
     transition: all 500ms;
 }
 
-.author-project:hover,
-.project:hover,
 .project-highlighted:hover {
     background-color: var(--text-primary);
     color: var(--bg-primary);
@@ -413,200 +296,7 @@ main {
     color: var(--theme-accent);
 }
 
-.author-project:hover,
-.project:hover,
 .project-highlighted:hover {
     background-color: var(--text-primary);
     color: var(--bg-primary);
-}
-
-
-/*code for grid taken from https://www.youtube.com/watch?v=705XCEruZFs*/
-
-div,
-input,
-textarea,
-button,
-select {
-    font-family: inherit
-}
-
-html {
-    overflow-y: scroll;
-}
-
-pre {
-    overflow: auto;
-}
-
-
-/* desert scheme ported from vim to google prettify */
-
-pre.prettyprint {
-    display: block;
-    background-color: #333
-}
-
-pre .nocode {
-    background-color: none;
-    color: #000
-}
-
-pre .str {
-    color: #ffa0a0
-}
-
-
-/* string  - pink */
-
-pre .kwd {
-    color: #f0e68c;
-    font-weight: bold
-}
-
-pre .com {
-    color: #87ceeb
-}
-
-
-/* comment - skyblue */
-
-pre .typ {
-    color: #98fb98
-}
-
-
-/* type    - lightgreen */
-
-pre .lit {
-    color: #cd5c5c
-}
-
-
-/* literal - darkred */
-
-pre .pun {
-    color: #fff
-}
-
-
-/* punctuation */
-
-pre .pln {
-    color: #fff
-}
-
-
-/* plaintext */
-
-pre .tag {
-    color: #f0e68c;
-    font-weight: bold
-}
-
-
-/* html/xml tag    - lightyellow */
-
-pre .atn {
-    color: #bdb76b;
-    font-weight: bold
-}
-
-
-/* attribute name  - khaki */
-
-pre .atv {
-    color: #ffa0a0
-}
-
-
-/* attribute value - pink */
-
-pre .dec {
-    color: #98fb98
-}
-
-
-/* decimal         - lightgreen */
-
-
-/* Specify class=linenums on a pre to get line numbering */
-
-ol.linenums {
-    margin-top: 0;
-    margin-bottom: 0;
-    color: #AEAEAE
-}
-
-
-/* IE indents via margin-left */
-
-li.L0,
-li.L1,
-li.L2,
-li.L3,
-li.L5,
-li.L6,
-li.L7,
-li.L8 {
-    list-style-type: none
-}
-
-
-/* Alternate shading for lines */
-
-li.L1,
-li.L3,
-li.L5,
-li.L7,
-li.L9 {}
-
-@media print {
-    pre.prettyprint {
-        background-color: none
-    }
-    pre .str,
-    code .str {
-        color: #060
-    }
-    pre .kwd,
-    code .kwd {
-        color: #006;
-        font-weight: bold
-    }
-    pre .com,
-    code .com {
-        color: #600;
-        font-style: italic
-    }
-    pre .typ,
-    code .typ {
-        color: #404;
-        font-weight: bold
-    }
-    pre .lit,
-    code .lit {
-        color: #044
-    }
-    pre .pun,
-    code .pun {
-        color: #440
-    }
-    pre .pln,
-    code .pln {
-        color: #000
-    }
-    pre .tag,
-    code .tag {
-        color: #006;
-        font-weight: bold
-    }
-    pre .atn,
-    code .atn {
-        color: #404
-    }
-    pre .atv,
-    code .atv {
-        color: #060
-    }
 }
