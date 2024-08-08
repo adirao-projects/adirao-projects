@@ -1,0 +1,193 @@
+<head>
+    <title>Adi Rao's Portfolio</title>
+    <link rel='icon' type='image/x-icon' href='resources/favicon.png'>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" rel="noopener" href="style.css?version=1">
+    <!-- <style>
+        .skill {
+            font-size:1.5rem;
+            border-radius: 4px;
+            
+            background-color:var(--theme-accent-alt);
+            
+            height: 100%;
+            width: 100%;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding:0.25rem;
+            color: #fff;
+            box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+            
+            border-radius: 4px;
+            transition: all 500ms; 
+        }
+        
+        .beginner {
+            background-color:#5aa469;
+        }
+        
+        .intermediate {
+            background-color:#efb08c;
+        }
+        
+        .advanced {
+            background-color:#d35d6e;
+        }
+    </style>-->
+    <style>
+        .skill {
+            border:2px dashed var(--text-primary);
+            padding:1em;
+            margin:3px;
+            text-align:center;
+            transition: all 500ms; 
+            border-radius: 6px;
+        }
+        
+        .beginner {
+            border:2px solid #5aa469;
+        }
+        
+        .intermediate {
+            border:2px solid #efb08c;
+        }
+        
+        .advanced {
+            border:2px solid #d35d6e;
+        }
+    </style>
+    <script>
+        function doc_keyDown(e) {
+            e.preventDefault();
+            if (e.ctrlKey && e.keyCode == 80) {
+              // call print code here.
+              console.log('PRINT PDF.');
+            }
+          }
+        document.addEventListener('keydown', doc_keyDown, false);
+    </script>
+</head>
+
+<body class="dark">
+    <div id="theme">
+        <button id="theme-button" class="tooltip" onclick="toggleTheme()"></button>
+    </div>
+    <div id="content">
+    <h1>Aditya K. Rao</h1>        
+    <div id="nav-list">
+        <a class="project-link" href="index.html"><div class="nav-element" id="nav-home">Home</div></a>
+        <a class="project-link" href="resume.html"><div class="nav-element" id="nav-resume">Resume</div></a>
+        <a class="project-link" href="portfolio.html"><div class="nav-element" id="nav-portfolio">Portfolio</div></a>
+        <a class="project-link" href="blog.html"><div class="nav-element" id="nav-blog">Blog & Creative Work</div></a>
+        <a class="project-link" href="booking.html"><div class="nav-element" id="nav-book">Booking</div></a>
+    </div>
+    <div class="line"></div>
+    <div class="card-grid" style="padding-top:2em; height:10em; text-align:center;">
+        <div class="nav-element" style="margin:auto; padding-top:5em; padding-bottom:5em;"
+            data-cal-link="adirao/tutoring"
+            data-cal-namespace="tutoring"
+            data-cal-config='{"layout":"month_view"}'
+        >Tutoring</div>
+        <div class="nav-element" style="margin:auto; padding-top:5em; padding-bottom:5em;"
+            data-cal-link="adirao/contracting"
+            data-cal-namespace="contracting"
+            data-cal-config='{"layout":"month_view"}'
+        >Contracting</div>
+        <div class="nav-element" style="margin:auto; padding-top:5em; padding-bottom:5em;"
+            data-cal-link="adirao/misc"
+            data-cal-namespace="misc"
+            data-cal-config='{"layout":"month_view"}'
+        >Meeting</div>
+    </div>
+    <!-- 
+        <div
+        style="width: 95%; height: 95%;"
+        id="my-cal-inline"
+        ></div>
+        <script type="text/javascript">
+        (function (C, A, L) {
+            let p = function (a, ar) {
+            a.q.push(ar);
+            };
+            let d = C.document;
+            C.Cal =
+            C.Cal ||
+            function () {
+                let cal = C.Cal;
+                let ar = arguments;
+                if (!cal.loaded) {
+                cal.ns = {};
+                cal.q = cal.q || [];
+                d.head.appendChild(d.createElement("script")).src = A;
+                cal.loaded = true;
+                }
+                if (ar[0] === L) {
+                const api = function () {
+                    p(api, arguments);
+                };
+                const namespace = ar[1];
+                api.q = api.q || [];
+                typeof namespace === "string"
+                    ? (cal.ns[namespace] = api) && p(api, ar)
+                    : p(cal, ar);
+                return;
+                }
+                p(cal, ar);
+            };
+        })(window, "https://app.cal.com/embed/embed.js", "init");
+        Cal("init", { origin: "https://app.cal.com" });
+
+        Cal("inline", {
+            elementOrSelector: "#my-cal-inline",
+            calLink: "adirao"
+        });
+        </script>
+
+    -->
+    <!-- Cal element-click embed code begins -->
+    <!-- Cal element-click embed code ends -->
+    </body>
+    </div>
+    <footer>
+        <h5>
+            Contact: adi.rao at mail.utoronto.ca
+        </h5>
+    </footer>
+    <script src="main.js"></script>
+    <script type="text/javascript">
+        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+        Cal("init", "misc", {origin:"https://cal.com"});
+        Cal("init", "tutoring", {origin:"https://cal.com"});
+        Cal("init", "contracting", {origin:"https://cal.com"});
+        
+        // Important: Please add the following attributes to the element that should trigger the calendar to open upon clicking.
+        // `data-cal-link="adirao/misc"`
+        // data-cal-namespace="misc"
+        // `data-cal-config='{"layout":"month_view"}'`
+        
+
+        var style = getComputedStyle(document.body);
+
+        Cal.ns.misc("ui", {"theme": "light","styles":{
+            "branding":{"brandColor":style.getPropertyValue('--theme-accent'),
+                        "textColor":style.getPropertyValue('--text-primary'),
+        }},"hideEventTypeDetails":false,"layout":"month_view"});
+        Cal.ns.tutoring("ui", {"styles":{
+            "branding":{"brandColor":style.getPropertyValue('--theme-accent')
+            
+        }},"hideEventTypeDetails":false,"layout":"month_view"});
+        Cal.ns.contracting("ui", {"styles":{
+            "branding":{"brandColor":style.getPropertyValue('--theme-accent')
+            
+        }},"hideEventTypeDetails":false,"layout":"month_view"});
+
+        
+    </script>
+    <!-- Cal element-click embed code begins -->
+    <!-- Cal element-click embed code ends -->
+</body>
+</html>

@@ -1,0 +1,203 @@
+<head>
+    <title>Adi Rao's Portfolio</title>
+    <link rel='icon' type='image/x-icon' href='resources/favicon.png'>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" rel="noopener" href="style.css?version=1">
+    <!-- <style>
+        .skill {
+            font-size:1.5rem;
+            border-radius: 4px;
+            
+            background-color:var(--theme-accent-alt);
+            
+            height: 100%;
+            width: 100%;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding:0.25rem;
+            color: #fff;
+            box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+            
+            border-radius: 4px;
+            transition: all 500ms; 
+        }
+        
+        .beginner {
+            background-color:#5aa469;
+        }
+        
+        .intermediate {
+            background-color:#efb08c;
+        }
+        
+        .advanced {
+            background-color:#d35d6e;
+        }
+    </style>-->
+    <style>
+        .skill {
+            border:2px dashed var(--text-primary);
+            padding:1em;
+            margin:3px;
+            text-align:center;
+            transition: all 500ms; 
+            border-radius: 6px;
+        }
+        
+        .beginner {
+            border:2px solid #5aa469;
+        }
+        
+        .intermediate {
+            border:2px solid #efb08c;
+        }
+        
+        .advanced {
+            border:2px solid #d35d6e;
+        }
+    </style>
+    <script>
+        function doc_keyDown(e) {
+            e.preventDefault();
+            if (e.ctrlKey && e.keyCode == 80) {
+              // call print code here.
+              console.log('PRINT PDF.');
+            }
+          }
+        document.addEventListener('keydown', doc_keyDown, false);
+    </script>
+</head>
+<body class="dark">
+    <div id="theme">
+        <button id="theme-button" class="tooltip" onclick="toggleTheme()"></button>
+    </div>
+    <div id="content">
+    <h1>Aditya K. Rao</h1>        
+    <div id="nav-list">
+        <a class="project-link" href="index.html"><div class="nav-element" id="nav-home">Home</div></a>
+        <a class="project-link" href="resume.html"><div class="nav-element" id="nav-resume">Resume</div></a>
+        <a class="project-link" href="portfolio.html"><div class="nav-element" id="nav-portfolio">Portfolio</div></a>
+        <a class="project-link" href="blog.html"><div class="nav-element" id="nav-blog">Blog & Creative Work</div></a>
+        <a class="project-link" href="booking.html"><div class="nav-element" id="nav-book">Booking</div></a>
+    </div>
+    <div class="line"></div>
+    <br>
+    <div id="work-edu-container">
+    <label style="font-size:1.5rem; text-align: center; margin-top:1em;"><b>Physics & Engineering</b></label>
+    <div id="education" class="exp-collection">
+        <div class="experience">
+            <div class="exp-role">Hons. Bachelors of Science</div>
+            <div class="exp-location">University of Toronto</div>
+            <div class="exp-date">2023-08 | Current</div>
+            <div class="exp-writeup">
+                Currently pursuing a Physics Specialist, Math Major, and CS Minor
+            </div>
+        </div>
+        <div class="experience">
+            <div class="exp-role">IB Diploma</div>
+            <div class="exp-location">The British School, New Delhi</div>
+            <div class="exp-date">2019-09 | 2021-04</div>
+            <div class="exp-writeup">
+                Completed the IB system with a 38, high level courses in Physics, Mathematics Analysis and Approaches, and Computer Science
+            </div>
+        </div>
+        <div class="experience">
+            <div class="exp-role">Certificate LQC</div>
+            <div class="exp-location">University of Maryland</div>
+            <div class="exp-date">2024-08 | 2024-08</div>
+            <div class="exp-writeup">
+                Currently pursuing a Physics Specialist, Math Major, and CS Minor
+            </div>
+        </div>
+    </div>
+    <br>
+    <label style="font-size:1.5rem; text-align: center"><b>Creative Work</b></label>
+    <div id="work-experience" class="exp-collection" style="margin-top:1em;">
+        <div class="experience">
+            <div class="exp-role">Instructor</div>
+            <div class="exp-location">University of Toronto</div>
+            <div class="exp-date">2023-08 | Current</div>
+            <div class="exp-writeup">
+                Taught and teaching a courses on Mathematics, Physics, Computer Science at the University of Toronto for Grades 5 through 12.
+            </div>
+        </div>
+        <div class="experience">
+            <div class="exp-role">Research Assistant</div>
+            <div class="exp-location">University of Toronto Physics dept.</div>
+            <div class="exp-date">2022-08 | 2022-12</div>
+            <div class="exp-writeup">
+                Worked on data catalogue software for SNOLAB SuperCDMS (Cryogenic Dark Matter Search) as part of the University of Toronto Physics Dept. in collaboration with Stanford.
+            </div>
+        </div>
+        <div class="experience">
+            <div class="exp-role">Tutor</div>
+            <div class="exp-location">Independent</div>
+            <div class="exp-date">2022-08 | Current</div>
+            <div class="exp-writeup">
+                Taught elementary to high school students (individual and groups) Math, Physics, and CS for various curriculum
+            </div>
+        </div>
+        <div class="experience">
+            <div class="exp-role">Machine Learning Intern</div>
+            <div class="exp-location">Zeta, Bangalore</div>
+            <div class="exp-date">2018-06 | 2018-09</div>
+            <div class="exp-writeup">
+                Worked in the ML department of a fintech banking startup. Worked with database optimization and model training specifically with kmeans clustering.
+            </div>
+        </div>
+    </div>
+    </div>
+    <br>
+    <label style="font-size:1.5rem; text-align: center"><b>Achievements</b></label>
+    <div id="achievements" class="card-grid" style="margin-top:1em;">
+        <div class="achievement">Certificate of Distinction (IGCSE)</div>
+        <div class="achievement">Certificate of Excellence (Computer Science)</div>
+        <div class="achievement">Coleader TBS Math Club</div>
+        <div class="achievement">UKMT Gold & Bronze</div>
+        <div class="achievement">UKMT Pink Kangaroo</div>
+        <div class="achievement">CSMC Distincion</div>
+        <div class="achievement">BPhO Distinction</div>
+        <div class="achievement">Top 10 India Nations (F1 in Schools)</div>
+        <div class="achievement">Sponsored by Microsoft (F1 in Schools)</div>
+        <div class="achievement">Mentoring with IISc professor</div>
+        <div class="achievement">Mentoring with IITD professor</div>
+        <div class="achievement">Winner TBS Hackathon 2018</div>
+        <div class="achievement">Winner TBS Hackathon 2019</div>
+        <div class="achievement">Winner TBS Hackathon 2020</div>
+        <div class="achievement">1st Runner up at YFS (Facebook)</div>
+    </div>        
+    <br>
+    <label style="font-size:1.5rem; text-align: center"><b>Highlighted Projects</b></label>
+    <br>
+    <br>
+    <div id="highlighted-projects" class="project-list">
+        <a href="https://projects.thefilmconsole.com/pages/ToDoPlus/ToDoPlus.html" target="_blank" class="project-link">
+            <div class="project-highlighted">
+                <label>Casuality in Quantum Teleportation</label>
+                <label style="font-size:0.7rem;">JURP-A Publication (2024)</label>
+            </div>
+        </a>
+        <a href="https://projects.thefilmconsole.com/pages/Moneymize/Moneymize.html" target="_blank" class="project-link">
+            <div class="project-highlighted">
+                <label>VCO Design & Analysis</label>
+                <label style="font-size:0.7rem;">Created by Arnav Jagetia</label>
+            </div>
+        </a>
+        <a href="https://projects.thefilmconsole.com/pages/EasyBookManager/EasyBookManager.html" target="_blank" class="project-link">
+            <div class="project-highlighted">
+                <label>Ventrui Effect</label>
+                <label style="font-size:0.7rem;">Created by Aditya Rao</label>
+            </div>
+        </a>
+    </div>
+    <footer>
+        <h5>
+            Contact: adi.rao at mail.utoronto.ca
+        </h5>
+    </footer>
+    <script src="main.js"></script>
+</body></html>

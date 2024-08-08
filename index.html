@@ -1,14 +1,9 @@
 <head>
-    <!--Change these-->
-    <title>Adi Rao's Projects</title>
-
-    <!--Add route to the favicon (image that is in the browser bar) here can be a .png .svg .jpg .ico among other ones (I'm not 100% about the ico though)-->
+    <title>Adi Rao's Portfolio</title>
     <link rel='icon' type='image/x-icon' href='resources/favicon.png'>
-    <!--Dont't change these -->
     <meta charset='utf-8'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" type="text/css" rel="noopener" href="style.css?version=1">
-
 </head>
 
 <body class='light'>
@@ -16,8 +11,8 @@
         <button id="theme-button" class="tooltip" onclick="toggleTheme()"></button>
     </div>
     <div id="content">
-        <h1>ADITYA K. RAO</h1>
-        <div class="line"></div>
+        <h1>Aditya K. Rao</h1>
+        <!-- <div class="line"></div> -->
         <!--
         <div id="nav-list">
             <div class="nav-element" id="nav-home"><a href="#home">Home</a></div>
@@ -28,61 +23,60 @@
         </div>
         -->
         <div id="nav-list">
-            <div class="nav-element" id="nav-home">Home</div>
-            <div class="nav-element" id="nav-resume">Resume</div>
-            <div class="nav-element" id="nav-portfolio">Publications & Portfolio</div>
-            <div class="nav-element" id="nav-blog">Posts & Creative Work</div>
-            <div class="nav-element" id="nav-book">Booking</div>
+            <a class="project-link" href="index.html"><div class="nav-element" id="nav-home">Home</div></a>
+            <a class="project-link" href="resume.html"><div class="nav-element" id="nav-resume">Resume</div></a>
+            <a class="project-link" href="portfolio.html"><div class="nav-element" id="nav-portfolio">Portfolio</div></a>
+            <a class="project-link" href="blog.html"><div class="nav-element" id="nav-blog">Blog & Creative Work</div></a>
+            <a class="project-link" href="booking.html"><div class="nav-element" id="nav-book">Booking</div></a>
         </div>
-        <div class="line"></div>
+        <!-- <div class="line"></div> -->
         
         <div id="overview">
             <div id="about", class="author-about">
-                    <p style="font-size: 1.5rem;">
-                        👋 Hi, I'm Adi (@adirao-projects) 
-                        <br>
-                        👀 I'm mainly interested in backend technologies, but 
-                        my primary focus is in physics and mathematics. 
-                        <br>
-                        🌱 I'm currently a student at the University of Toronto 
-                        for Physics and Mathematics (with CS). 
-                        <br>
-                        💞️ I'm looking to collaborate on anything that’s pretty 
-                        cool. 
-                        <br>
-                        📫 You can reach me mainly through my github, but here's 
-                        my new twitter: <a href="https://twitter.com/adiraowastaken">@adiraowastaken</a>
-                    </p>
+                <p style="font-size: 1.5rem;">
+                    👋 Hi, I'm Adi (@adirao-projects) 
+                    <br>
+                    👀 I'm mainly interested in backend technologies, but 
+                    my primary focus is in physics and mathematics. 
+                    <br>
+                    🌱 I'm currently a student at the University of Toronto 
+                    for Physics and Mathematics (with CS). 
+                    <br>
+                    💞️ I'm looking to collaborate on anything that’s pretty 
+                    cool. 
+                    <br>
+                    📫 You can reach me mainly through my github, but here's 
+                    my new twitter: <a href="https://twitter.com/adiraowastaken">@adiraowastaken</a>
+                </p>
             </div>
             <div id="picture">
                 <img id='image-data' src='resources/button.jpg'>
             </div>
         </div>
 
-        <div class="line"></div>
+        <!-- <div class="line"></div> -->
 
         <div id="highlighted-projects" class="project-list">
             <a href="https://projects.thefilmconsole.com/pages/ToDoPlus/ToDoPlus.html" target="_blank" class="project-link">
-                    <div class="project-highlighted">
-                        <label>ToDo+</label>
-                        <label style="font-size:0.7rem;">Created by Aviraj Newatia</label>
-                    </div>
-                </a>
-                <a href="https://projects.thefilmconsole.com/pages/Moneymize/Moneymize.html" target="_blank" class="project-link">
-                    <div class="project-highlighted">
-                        <label>Moneymize</label>
-                        <label style="font-size:0.7rem;">Created by Arnav Jagetia</label>
-                    </div>
-                </a>
-                <a href="https://projects.thefilmconsole.com/pages/EasyBookManager/EasyBookManager.html" target="_blank" class="project-link">
-                    <div class="project-highlighted">
-                        <label>Easy Book Manager</label>
-                        <label style="font-size:0.7rem;">Created by Aditya Rao</label>
-                    </div>
-                </a>
-        
-            </div>
-        <div class="line"></div>
+                <div class="project-highlighted">
+                    <label>Casuality in Quantum Teleportation</label>
+                    <label style="font-size:0.7rem;">JURP-A Publication (2024)</label>
+                </div>
+            </a>
+            <a href="https://projects.thefilmconsole.com/pages/Moneymize/Moneymize.html" target="_blank" class="project-link">
+                <div class="project-highlighted">
+                    <label>VCO Design & Analysis</label>
+                    <label style="font-size:0.7rem;">Created by Arnav Jagetia</label>
+                </div>
+            </a>
+            <a href="https://projects.thefilmconsole.com/pages/EasyBookManager/EasyBookManager.html" target="_blank" class="project-link">
+                <div class="project-highlighted">
+                    <label>Ventrui Effect</label>
+                    <label style="font-size:0.7rem;">Created by Aditya Rao</label>
+                </div>
+            </a>
+        </div>
+        <!-- <div class="line"></div> -->
         <div id="contact">
 
         </div>
@@ -90,7 +84,7 @@
 
     <footer>
         <h5>
-            Hosting coutesy of <a href="http://thefilmconsole.com" target="_blank">TheFilmConsole.com</a>
+            Contact: adi.rao at mail.utoronto.ca
         </h5>
     </footer>
     <script src="main.js"></script>
