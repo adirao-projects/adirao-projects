@@ -347,7 +347,7 @@ footer{
     grid-template-columns: repeat(auto-fit, minmax( 240px, 3fr));
 }
 
-.project-highlighted {
+/* .project-highlighted {
     background-color: var(--theme-accent);
     font-size: 1.5rem;
     border-radius: 4px;
@@ -361,6 +361,29 @@ footer{
     color: #fff;
     box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
     border-radius: 4px;
+    transition: all 500ms;
+}
+
+.project-highlighted:hover {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    text-decoration: none;
+} */
+
+.project-highlighted {
+    /* background-color: var(--theme-accent); */
+    font-size: 1.5rem;
+    border:2px solid var(--theme-accent);
+    border-radius: 4px;
+    height: 4rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.25rem;
+    color: #fff;
+    box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
     transition: all 500ms;
 }
 

@@ -1,0 +1,489 @@
+\documentclass[%singlesided,
+               doublesided,
+               paper=a4,
+               fontsize=10pt
+              ]{my-resume}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% set geometry
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setlength\highlightwidth{8cm}
+\setlength\headerheight{4cm}            % note that margintop gets added to this value, i.e. the header bar is 5cm
+\setlength\marginleft{1cm}
+\setlength\marginright{\marginleft}      % needs to be 1.5 times to be actually equal. why?
+\setlength\margintop{1cm}
+\setlength\marginbottom{1cm}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FONTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage{fontspec}
+\setmainfont{Carlito}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COLORS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\colorlet{highlightbarcolor}{lightgray}
+\colorlet{headerbarcolor}{darkgray}
+
+\colorlet{headerfontcolor}{white}
+\colorlet{accent}{awesome-skyblue}
+\colorlet{heading}{black}
+\colorlet{emphasis}{black}
+\colorlet{body}{black}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% set document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\name{Aditya Rao}
+%\tagline{Amazing tag line that makes HR managers want to hire you immediately.\\The tag line is aligned with the bottom of the picture to the right, so if you have\\multiple lines it fills the space to your name from the bottom. You might want to\\introduce manual line breaks to make this look nicer then simply filling up the lines.}
+\tagline{I am an undergraduate student attending the University of Toronto (2025). My goal is to continuously build my skills in academia and in industry primarily in Physics and Research \& Development. I am currently pursuing a Hons. BSc. for a Physics Specialist with a Mathematics Major and Computer Science Minor. My key areas of interest in academia include Device Physics, Engineering Physics, Quantum Computing (with hardware/software applications), and Electronics.
+\vspace{1cm}}
+%\photo[round]{image4.jpg}{\dimexpr \headerheight-\marginbottom}   % make photo exactly match the header with margintop/marginright/marginbottom as margin
+
+\makeheader
+
+\highlightbar{
+
+    \section{Contact}
+    
+    \email{adityakrao.work@gmail.com}
+    \email{adi.rao@mail.utoronto.ca}
+    \phone{+1 (416)-802-5648}
+    \location{321 August Ave, Toronto, ON}
+    \vspace{0.5em}
+    \homepage{adirao.tech}{https://www.adirao.tech}
+    \github{@adirao-projects}{https://github.com/adirao-projects}
+    \linkedin{Aditya Rao}{https://www.linkedin.com/in/aditya-rao-a4b27b1a6/}
+    \orcid{0000-0002-8239-081X}{https://orcid.org/
+0000-0002-8239-081X}
+    %\ads{NASA/ADS publication list}{https://ui.adsabs.harvard.edu/search/fq=\%7B!type\%3Daqp\%20v\%3D\%24fq\_database\%7D&fq\_database=database\%3A\%20astronomy&p\_=0&q=pubdate\%3A\%5B2016-01\%20TO\%209999-12\%5D\%20author\%3A(\%22Krieger\%2C\%20Nico\%22)&sort=date\%20desc\%2C\%20bibcode\%20desc}
+    
+    \section{Skills \& Areas of Interest}
+    \skillsection{Physics \& Mathematics}
+    \skill{Particle Physics}{4}
+    \skill{Electrodynamics}{3}
+    \skill{Electronics}{5}
+    \skill{Quantum Mechanics}{3}
+    \skill{Quantum Information}{4}
+    \skill{Linear Algebra \& Algebra}{5}
+    \skill{Special \& General Relativity}{3}
+    %\skill{Monte-Carlo Simulations}{3}
+    %\skill{Quantum Measurement}{1}
+    
+    \skillsection{Programming}
+    \skill{Python}{5}
+    \skill{Java}{4}
+    %\skill{C++}{3}
+    %\skill{Julia}{3}
+    \skill{C++, Julia}{3}
+    \skill{JavaScript, HTML, CSS}{4}
+    %\skill{Dart (Flutter)}{3}
+    %\skill{LaTeX}{5}
+    \skill{NASM x86 Assembler}{4}
+    
+    %\vspace{0.5em}
+    %\skillsection{Operating Systems}
+    %\skill{Linux}{3}
+    %\skill{MacOS}{4}
+    %\skill{Windows}{5}
+    \vspace{0.5em}
+    \skillsection{Engineering, Manufacturing \& Simulation}
+    \skill{Autodesk Fusion 360}{5}
+    \skill{Sketchup}{3}
+    \skill{Blender 3D}{5}
+    \skill{Ansys}{3}
+    \skill{Autodesk CFD}{4}
+    \skill{Soldering}{5}
+    \skill{Welding \& Machining}{3}
+    %\skill{Machining}{3}
+    
+    \vspace{0.5em}
+    \skillsection{Software \& Tools}
+    \skill{Data visualisation}{5}
+    %(e.g. matplotlib, gnuplot, ...)\\
+    \skill{Data handling/analysis}{5}
+    (e.g. numpy, scipy, pandas, etc.)\\
+    \skill{Git}{5}
+    %\skill{Linux}{3}
+    %(e.g. Github actions, gitlab, etc.) \\
+    %\skill{Docker}{1}
+    %\skill{Office}{5}
+    \skill{APIs \& Postman}{4}
+    \skill{Cryptography \& Security}{4}
+    
+    %\vspace{0.5em}
+    %\skillsection{Another skill subsection header}
+    %You can also put simply text here without the dots.
+    
+    %\vspace{0.5em}
+    %\skillsection{Languages}
+    %\skill{English}{5}
+    %\skill{Hindi \& Urdu}{5}
+    %\skill{Spanish}{4}
+    \bigskip
+    
+    \section{Certificates}
+     \simpleskill{Quantum Computing @ LQC, UMD [2024]}
+    \simpleskill{Cambridge International Certificate of Secondary Education (4.0) [2019]}
+    \simpleskill{International Baccalaureate Diploma Program (38) [2021]}
+
+}
+\mainbar{
+    %\section{About this template}
+    %Section are set in bold face. An optional parameter of \texttt{\textbackslash section} takes a symbol to add in front of the text. This option is used in the jobs and education sections below.
+    
+    \section[\faGears]{Work history}
+    %\job{09/2023}
+    %    {Marilake Academy}
+    %    {Teacher/Instructor}
+    %    {Physics, Mathematics, Computer Science, and Chemistry instructor at Marilake Academy.}
+    \job{08/2023-\textbf{Current}}
+        {University of Toronto Math, Toronto}
+        {Instructor}
+        {Taught and teaching a courses on Mathematics, Physics, Computer Science at the University of Toronto for Grade 5/6, 7/8, 9/10, 11/12.}
+    \job{08/2022-12/2022}
+        {University of Toronto Physics, Toronto}
+        {Software Engineer \& Researcher}
+        {Worked on data catalogue software for SNOLAB SuperCDMS (Cryogenic Dark Matter Search) as part of the University of Toronto Physics Dept. in collaboration with Stanford.}
+    \job{08/2022-\textbf{Current}}
+        {Independent}
+        {Teacher}
+        {Taught elementary to high school students (individual and groups) Math, Physics, and CS for various curriculum.}
+    %\job{09/2022 - 11/2022}
+    %    { Otto's Berlin Doner}
+    %    {Line Cook}
+    %    {Learnt how to demonstrate leadership and under pressure, in a high-paced enviornment.}
+    \job{01/2022-\textbf{Current}}
+        {By The Cover, Toronto}
+        {Founder}
+        {Founder of a B2C/B2B market research application utilizing visual metrics to quantify emergent properties in book cover design.}
+    \job{02/2022 - 06/2022}
+        {Cryisor, Toronto}
+        {CTO and Co-founder}
+        {Cofounder of a fintech startup. Accepted into one of the biggest incubators in Canada (Hatchery - NEST).}
+    \job{06/2018 - 09/2018}
+        {Zeta, Bangalore}
+        {Machine Learning Intern}
+        {Worked in the ML department of a fintech banking startup. Worked with database optimization and model training specifically with kmeans clustering.}
+    %\job{01/2020 - 01/2021}
+    %    {Research Mentee, New Delhi}
+    %    {Research}
+    %    {Worked on research with professors from IISC and IIT-D}
+    
+    \section[\faMortarBoard]{Education}
+    \job{09/2021 - 04/2025}
+        {University of Toronto}
+        {\large{Honours Bachelor of Science}}
+        {Currently pursuing a Physics Major, Math Major, and CS Major}
+    \job{09/2019 - 04/2021}
+        {The British School, New Delhi}
+        {\large{International Bachelorette}}
+        {Completed the IB system with a 39, high level courses in Mathematics Analysis and Approaches, Computer Science, and Physics}
+
+    \section{Achievements, honours and awards}
+    \achievement{Principal's Award [April 2019]}
+    \achievement{Certificate of Distinction and Excellence for IGCSE Final Results [April 2019]}
+    %\achievement{Certificate of Excellence in IGCSE Computer Science [April 2019]}
+    \achievement{TBS Hackathon Winner 3 years consecutively [2018, 2019, 2020]}
+    \achievement{UKMT - Bronze, Silver, Gold [2019, 2020, 2021]}
+    \achievement{Best Delgate Award Model UN [2018]}
+    \achievement{F1 in Schools Awards [2019, 2021]}
+    \achievement{British Physics Olympiad (BPHO) Distinction [2020]}
+
+    \section{General Skills}
+    \smallskip % additional skip because tag outlines use up space
+    \tag{Algorithmic Thinking}
+    \tag{Machine Learning}
+    \tag{Simulation}
+    \tag{CAD/CAM}
+    \tag{Research \& Development}
+    \tag{Project Management}
+    \tag{Leadership}
+    
+%    \section{Wheel Chart}
+%    % This is taken from AltaCV
+%    % see https://github.com/liantze/AltaCV for details
+%    \wheelchart{1.5cm}{0.5cm}{% outer and inner diameter
+%        5/8em/accent!20/Sleep,          % comma-separated list of
+%        10/8em/accent!40/University,    % fraction of 24 / line length / color / label
+%        2/8em/accent!80/Personal Projects,          % here, the color is shades of the accent color
+%        3/8em/accent!60/Fun stuff,
+%        6/8em/accent/Assignments
+%    }
+}
+\makebody
+\clearpage
+
+
+\pagestyle{highlightmain}
+
+% The highlightbar needs to be filled to display mainbar contents correctly in singlesised mode
+% For an empty highlightbar, fill with empty space
+\highlightbar{
+    \section{University Courses}
+        \subsection{Physics}
+            \begin{itemize}
+                \item \textit{Foundations of Physics I \& II} [PHY151F, PHY152F]
+                %\item \textit{Classical Mechanics} [PHY254F]
+                \item \textit{Quantum Mechanics} [PHY256F]
+                \item \textit{Electricity and Magnetism} [PHY250S]
+                \item \textit{Thermal Physics} [PHY252S]
+                \item \textit{Mechanics II} [PHY254S]
+                \item \textit{Electrodynamics} [PHY350F]
+                \item \textit{Practical Physics I} [PHY224F]
+                \item \textit{Practical Physics II} [PHY324F]
+                \item \textit{Quantum Informatics} [PHY365S]
+                \item \textit{Electronics Lab} [PHY405S]
+                \item \textit{Relativistic Electrodynamics} [PHY450S]
+                \item \textit{Quantum Measurement} [PHY2205S] (Audit, Graduate)
+            \end{itemize}
+        \subsection{Mathematics}
+            \begin{itemize}
+                \item \textit{Analysis I} [MAT157Y]
+                \item \textit{Algebra I \& II} [MAT240F, MAT247S]
+                \item \textit{Multivariable Calc.} [MAT235Y]
+                \item \textit{ODEs} [MAT244F]
+                \item \textit{Mathematics and Law} [APM306Y]
+                \item \textit{Complex Analysis} [MAT334]
+                \item \textit{PDEs} [APM346]
+            \end{itemize}
+        \subsection{Computer Science}
+            \begin{itemize}
+                \item \textit{Intro to programming} [CSC108F]
+                \item \textit{Intro to Computer Science} [CSC148S]
+                \item \textit{Intro to Theory} [CSC165S]
+                \item \textit{Systems Architecture} [CSC207F]
+                \item \textit{Theory of Computation} [CSC236F]
+                \item \textit{Machine Learning} [CSC311S]
+            \end{itemize}
+        
+        \subsection{Misc.}
+            \begin{itemize}
+                \item \textit{Introduction to Sociology} [SOC100F]
+                \item \textit{Crime Film Traditions} [CIN216S]
+                \item \textit{History and Philosophy of Science} [HPS100F]
+                \item \textit{Confronting Global Change} [ESS205S]
+            \end{itemize}
+
+    % \section{Reading Projects}
+    %     \begin{itemize}
+    %         \item \textit{Algebraic Number Theory} [Focus on prime number theorem and investigating the Riemann Zeta Function]
+    %     \end{itemize}
+            
+    \section{Leadership}
+        \begin{itemize}
+            \item \textbf{Vice President} \textit{UTTC} [2022-2025]
+            \item \textbf{CTO} \textit{Cryisor inc.} [2022]
+            \item \textbf{Founder} \textit{Hammocks} [2022-2024]
+            \item \textbf{Founder} \textit{By The Cover} [2022-2024]
+            \item \textbf{Co-Leader and Co-Founder} \textit{TBS Mathematics Club} [2020-2021]
+            \item \textbf{Co-Chair} \textit{TBS Intra-MUN and BSMUN} [2020]
+            \item \textbf{Executive Production Team} \textit{TEDx} [2019]
+            \item \textbf{Organizer} \textit{Round Square} [2019]
+            \item \textbf{Volunteer \& Project Coordinator} \textit{Visionaries India} [2020]
+            \item \textbf{Volunteer \& Project Coordinator} \textit{Annapurna Project} [2019]
+            \item \textbf{Volunteer \& Project Coordinator} \textit{Very Special Arts India} [2018]
+        \end{itemize}
+        %\subsection{Head of Courts, UTTC [2022-2024]}
+
+        %\subsection{CTO, Cryisor Inc. [2022]}
+        
+        %\subsection{Co-Leader and Co-Founder, TBS Math Club [2020-2021]}
+        
+        %\subsection{Co-Chair TBS Intra-MUN [2020]}
+        
+        %\subsection{Co-Chair BSMUN [2020]}
+        
+        %\subsection{Executive Production Team for TEDx event [2019]}
+        
+        %\subsection{Organizing team Round Square [2019]}
+        
+        %\subsection{Organizing team ISACI [2019]}
+        
+        %\subsection{Volunteer, Visionaries India [2020]}
+        
+        %\subsection{Volunteer \& Project Coordinator, Annapurna Project [2019]}
+        
+        %\subsection{Volunteer \& Project Coordinator, Very Special Arts India [2018]}
+}
+\mainbar{
+
+    %\section{Additional Achievements and Skills}
+    
+    %This page uses the page style \texttt{highlightmain} which shows the highlight bar (gray) and the main part (white background) but omits the header. 
+    %The default page style is \texttt{headerhighlightmain} with all three elements.
+    %If you don't want header, nor highlight bar, use page style \texttt{\textbackslash pagestyle\{empty\}}.
+    %\medskip
+    %Neither main, nor highlight bar must be filled to make this template work.
+    %It is possible to use a page style with the highlight bar but leave it empty by setting an empty highlightbar \texttt{\textbackslash highlightbar\{\}}.
+
+    \vspace{0.5em}
+    \section{Physics, Science, \& Aerodynamics}
+        \subsection{IB Physics HL Extended Essay [2021]}
+            Investigated the Chord Thickness ratio on cambered and symmetric airfoils using Computational Fluid Dynamics and a Homemade Wind tunnel.
+            
+        \subsection{BPHO Distinction [2019]}
+        
+        \subsection{Formula One in Schools [2018, 2020]}
+            Two time national finalist for two different teams in the F1 in Schools competition. Designed and manufactured and aerodynamics, CO2 powered race car utilizing CAD (Autodesk Fusion 360, Blender), CAM, and CFD (Autodesk) tools \\
+            \textbf{2018 Season:} \\
+                National finalists & Best Sponsorship Award for designing an aerodynamic, CO2-powered race car. Sponsored by: Tata Power, Tata Communications, Ahoy \\
+            \textbf{2020 Season:} \\
+                Top-10 national finalists. Sponsored by: Microsoft, Selan Oil, Bharat Forge
+        
+        \subsection{AESI Bangalore Research Paper [2019]}
+        
+        \subsection{Member of UTFR Engineering Team [2021+]}
+        
+        \subsection{Member of UTAT Engineering Team [2021+]}
+
+    \section{Computer Science, \& Technology}
+        \subsection{1st Place Winner TBS Hackathon ``COVID-19'' [2020]}
+            Designed an and started developing an app to limit COVID-19 spread in stores while helping increase grocery store efficiency.
+            
+        \subsection{1st Place Winner TBS Hackathon ``Transportation'' [2019]}
+             Designed an algorithm and app to manage traffic as well as assisted in the creation of relevant simulations.
+             
+        \subsection{1st Place Winner TBS Hackathon ``Smart Habitat'' [2018]}
+            Designed a smart machine, was in charge of physical design (using CAD software) & programming of OCR software using Python.
+            
+        \subsection{Certificate of Merit [2018]}
+            Awarded a certificate of merit for encryption algorithm developed.
+            
+        \subsection{SEA Winners of Young Founders Summit [2019]}
+            \textbf{Sponsored by Facebook.}  Our startup idea involved designing a GPS enabled band & smart navigation app focused on Women’s Safety (Nov 2018). We were unable to go to global finals in LA due to clashes with our 10th grade IGCSE certification exams.
+            
+        \subsection{Hackathons and Code Jams}
+            Participated in a host of hackathons and code jams including: Google Code Jam; EdBrand Hackathon; SwampHacks VIII; Toronto Hacks; Reply; and more.
+            
+    \section{Mathematics}
+        \subsection{UKMT [2018, 2019, 2020]}
+            Achieved Bronze, Silver, and Gold over 2018, 2019, and 2020 in the United Kingdom Mathematics Trust Olympiad. Invited to Pink Kangaroo.
+            
+        \subsection{Distinction in CSMC [2019, 2020]}
+        
+        \subsection{Distinction in ASMA [2020]}
+            
+        \subsection{Presenter at TBS Math \& Science Symposiums}
+
+}
+\makebody
+
+
+\clearpage
+\pagestyle{empty}
+
+\section{Publications}
+\pubforcefullwidth
+
+These are a list of conceptual/philosophical documents I have written, click on the ``G-Drive'' text to access a copy on google drive. All of these are my own intellectual property, any external sources used are cited in the works cited section of each document. There are more non-formal work on my website which can be requested if need be.
+
+%Demonstrate what an \texttt{\textbackslash pagestyle\{empty\}} page looks like.
+%Also show off the macros for publications that uses small icons for authors, date, journal and links.
+
+%Achieving a good looking spacing can be tricky. For empty pagestyles where the full width is available use \texttt{\textbackslash pubforcefullwidth} to force the publoication list to take up all the available space.
+%The (relative) lengths reserved for date, journal and links can be set with the parameters \texttt{\textbackslash pubdatelength}, \texttt{\textbackslash pubjournallength} and \texttt{\textbackslash publinklength} as in \texttt{\textbackslash setlength\{\textbackslash pubdatelength\}\{0.15 \textbackslash linewidth\}}.
+\bigskip
+
+\publication
+	{Investigating Locality in Quantum Systems} % Title
+	{\textbf{A. Rao}} % Authors
+	{2024} % Year
+	{Accepted for publication to JURPA (American Physical Society)} % Journal
+    {\href{https://drive.google.com/file/d/11Jxuwosy_RHILA6zEOKnV90gzT-gSnZz/view?usp=drive_link}{G-Drive}}
+\publication
+	{Investigation into the chord-thickness ratio of cambared and symmetric aerofoils on lift generation} % Title
+	{\textbf{A. Rao}} % Authors
+	{2021} % Year
+	{IB Physics Extended Essay} % Journal
+	{\href{https://drive.google.com/file/d/1iNuz6GyCQ5tocmtymL6gZ6pcuWnWGaJR/view?usp=sharing}{G-Drive}} % ADS & arxiv links
+	
+\publication
+	{The effect of temperature on batteries} % Title
+	{\textbf{A. Rao}} % Authors
+	{2021} % Year
+	{IB Physics Internal Assessment} % Journal
+	{\href{https://drive.google.com/file/d/1GWGu-Hs1JLPM09Opu7atbjhXZf3iJpHj/view?usp=sharing}{G-Drive}} % ADS & arxiv links
+
+\publication
+	{An Investigation into prime numbers} % Title
+	{\textbf{A. Rao}} % Authors
+	{2021} % Year
+	{IB Mathematics Internal Assessment} % Journal
+	{\href{https://drive.google.com/file/d/14eHbjy9PMu8KufXfvyv0dE8Dfuy3ZLTy/view?usp=sharing}{G-Drive}} % ADS & arxiv links
+	
+\publication
+	{A look into machine learning, gradient decent, and the tanh vs. sigmoid activation functions} % Title
+	{\textbf{A. Rao}} % Authors
+	{2021} % Year
+	{IB Mathematics Internal Assessment} % Journal
+	{\href{https://drive.google.com/file/d/1kVpSQky80j6iVUuVikYTPtVWeeBq6dii/view?usp=sharing}{G-Drive}} % ADS & arxiv links
+	
+\publication
+	{Examining the Tet Offensive as a key turning point in the Vietnam War} % Title
+	{\textbf{A. Rao}} % Authors
+	{2021} % Year
+	{IB History Internal Assessment} % Journal
+	{\href{https://drive.google.com/file/d/1Mtx6K0ZTZZCAHK1M3TqQMNVC3CZW2h7z/view?usp=sharing}{G-Drive}} % ADS & arxiv links
+
+\section{Talks \& Lectures}
+\pubforcefullwidth
+
+These are a list of the talks, lectures, and classes I have taught in the past. Should there be an available recording, it is linked. Otherwise, an abstract is included for each entry.
+\bigskip
+
+\publication 
+    {No Cloning Cats and Cracking Quantum Safes [Talk]}
+    {\textbf{A.K. Rao}}
+    {2024}
+    {Talk on Quantum Computing and Quantum Cryptography given \textit{St. Mary Catholic School}, \texttt{Toronto, ON, Canada}}
+    
+\publication 
+    {Introduction to Quantum Computing and Quantum Cryptography [Talk]}
+    {\textbf{A.K. Rao}}
+    {2024}
+    {Talk on Quantum Computing and Quantum Cryptography given \textit{King City Secondary School}, \texttt{King City, ON, Canada}}
+
+\publication 
+    {Intermediate Hardware Programming}
+    {\textbf{A.K. Rao}}
+    {2024}
+    {Course taught to grade 9 and 10 for the University of Toronto \texttt{Toronto, ON, Canada}}
+
+\publication 
+    {Competition Mathematics}
+    {\textbf{A.K. Rao}}
+    {2024}
+    {Course taught to grade 11 and 12 for the University of Toronto \texttt{Toronto, ON, Canada}}
+    
+\publication 
+    {Competition Mathematics}
+    {\textbf{A.K. Rao}}
+    {2024}
+    {Course taught to grade 4 and 5 for the University of Toronto \texttt{Toronto, ON, Canada}}
+
+\publication 
+    {Introduction to University Physics}
+    {\textbf{A.K. Rao}}
+    {2023}
+    {Course taught to grade 9 and 10 for the University of Toronto \texttt{Toronto, ON, Canada}}
+    
+
+%\publication
+%	{The molecular ISM in the Super Star Clusters of the starburst NGC253} % Title
+%	{\textbf{N. Krieger}, A. Bolatto, A. Leroy, R. Levy, E. Mills, D. Meier, S. Veilleux, F. Walter, A. Wei\ss} % Authors
+%	{2020} % Year
+%	{The Astrophysical Journal Vol.897, Issue 2, id.176} % Journal
+%	{\ADS{https://ui.adsabs.harvard.edu/abs/2020ApJ...897..176K}, \arXiv{https://arxiv.org/abs/2006.08262}} % ADS & arxiv links
+
+\end{document}

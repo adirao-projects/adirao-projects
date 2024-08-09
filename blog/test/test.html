@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Aditya Rao 1008307761" />
+  <meta name="dcterms.date" content="2023-01-14" />
+  <title>Problem Set 1 PHY365</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Problem Set 1<br />
+<span>PHY365</span></h1>
+<p class="author">Aditya Rao 1008307761</p>
+<p class="date">January 14, 2023</p>
+</header>
+<h1 id="question-1">Question 1</h1>
+<div class="mdframed">
+<p>The three <em>pauli matricies</em> are given by:</p>
+<p><span class="math display">$$\hat{X} = \begin{bmatrix} 0 &amp; 1 \\ 1
+&amp; 0\end{bmatrix}, \
+                \hat{Y} = \begin{bmatrix} 0 &amp; -i \\ i &amp;
+0\end{bmatrix}, \
+                \hat{Z} = \begin{bmatrix} 1 &amp; 0 \\ 0 &amp;
+-1\end{bmatrix}$$</span></p>
+<p>Find the eigenvectors, eigenvalues, and diagonal representations of
+<span class="math inline"><em>X̂</em></span>, <span
+class="math inline"><em>Ŷ</em></span>, and <span
+class="math inline"><em>Ẑ</em></span>.</p>
+</div>
+<p>First find eigenvalues by solving the characteristic equation.</p>
+<h2 id="for-hatx">For <span class="math inline"><em>X̂</em></span></h2>
+<p>Characteristic polynomial: <span
+class="math inline"><em>λ</em><sup>2</sup> − 1</span>. Therefore, the
+eigenvalues are <span class="math inline"><em>λ</em> = ±1</span>.</p>
+<p>In a diagnolized matrix, the eigenvaluesa are the entries along the
+diagonal. Therefore the diagnolized form of <span
+class="math inline"><em>X̂</em></span> is</p>
+<p><span class="math display">$$\begin{bmatrix} 1 &amp; 0 \\ 0 &amp;
+-1\end{bmatrix}$$</span></p>
+<p>Finally, to find the eigenvectors, we solve the equation <span
+class="math inline">(<em>X̂</em> − <em>λ</em><em>I</em>)<em>v⃗</em> = 0</span>
+for each eigenvalue. For <span
+class="math inline"><em>λ</em> = 1</span>, we have.</p>
+<p><span class="math display">$$\begin{aligned}
+                \begin{bmatrix}
+                    -1 &amp; 1 \\
+                    1 &amp; -1
+                \end{bmatrix}
+                \begin{bmatrix}
+                    x \\
+                    y
+                \end{bmatrix}
+                &amp;= 0 \\
+                \implies - x + y = 0 \\
+                x - y = 0 \\
+                \therefore \vec{v} &amp;= \begin{bmatrix} 1 \\
+1\end{bmatrix}
+            
+\end{aligned}$$</span></p>
+<p>For <span class="math inline"><em>λ</em> = −1</span>, we have</p>
+<p><span class="math display">$$\begin{aligned}
+                \begin{bmatrix}
+                    1 &amp; 1 \\
+                    1 &amp; 1
+                \end{bmatrix}
+                \begin{bmatrix}
+                    x \\
+                    y
+                \end{bmatrix}
+                &amp;= 0 \\
+                \implies x + y &amp;= 0 \\
+                x + y &amp;= 0 \\
+                \therefore \vec{v} &amp;= \begin{bmatrix} -1 \\
+1\end{bmatrix}
+            
+\end{aligned}$$</span></p>
+<h2 id="for-haty">For <span class="math inline"><em>Ŷ</em></span></h2>
+<p>Characteristic polynomial: <span
+class="math inline"><em>λ</em><sup>2</sup> − 1</span>. Therefore, the
+eigenvalues are <span class="math inline"><em>λ</em> = ±1</span>.</p>
+<p>Hence, the diagnolized matrix is the same as that for <span
+class="math inline"><em>X̂</em></span>.</p>
+<p><span class="math display">$$\begin{bmatrix} 1 &amp; 0 \\ 0 &amp;
+-1\end{bmatrix}$$</span></p>
+<p>Finally, to find the eigenvectors, we solve the equation <span
+class="math inline">(<em>Ŷ</em> − <em>λ</em><em>I</em>)<em>v⃗</em> = 0</span>
+for each eigenvalue. For <span
+class="math inline"><em>λ</em> = 1</span>, we have.</p>
+<p><span class="math display">$$\begin{aligned}
+                \begin{bmatrix}
+                    -1 &amp; -i \\
+                    i &amp; -1
+                \end{bmatrix}
+                \begin{bmatrix}
+                    x \\
+                    y
+                \end{bmatrix}
+                &amp;= 0 \\
+                \implies - x - iy = 0 \\
+                ix - y = 0 \\
+                \therefore \vec{v} &amp;= \begin{bmatrix} i \\
+1\end{bmatrix}
+            
+\end{aligned}$$</span></p>
+<p>For <span class="math inline"><em>λ</em> = −1</span>, we have</p>
+<p><span class="math display">$$\begin{aligned}
+                \begin{bmatrix}
+                    1 &amp; -i \\
+                    i &amp; 1
+                \end{bmatrix}
+                \begin{bmatrix}
+                    x \\
+                    y
+                \end{bmatrix}
+                &amp;= 0 \\
+                \implies x - iy &amp;= 0 \\
+                ix + y &amp;= 0 \\
+                \therefore \vec{v} &amp;= \begin{bmatrix} -i \\
+1\end{bmatrix}
+            
+\end{aligned}$$</span></p>
+<h2 id="for-hatz">For <span class="math inline"><em>Ẑ</em></span></h2>
+<p>Notice that <span class="math inline"><em>Ẑ</em></span> is already
+diagonal. The eigenvalues are the entries along the diagonal, which are
+<span class="math inline"><em>λ</em> = ±1</span>.</p>
+<p>The eigenvectors are trivially <span class="math inline">$\vec{v} =
+\begin{bmatrix} 1 \\ 0\end{bmatrix}$</span> and <span
+class="math inline">$\vec{v} = \begin{bmatrix} 0 \\
+1\end{bmatrix}$</span> for <span
+class="math inline"><em>λ</em> = 1</span> and <span
+class="math inline"><em>λ</em> = −1</span> respectively.</p>
+<h1 id="question-2">Question 2</h1>
+<div class="mdframed">
+<p>Show that <span
+class="math display"><em>X̂</em><em>Ŷ</em> = <em>i</em><em>Ẑ</em>, <em>Ŷ</em><em>Ẑ</em> = <em>i</em><em>X̂</em>, <em>Ẑ</em><em>X̂</em> = <em>i</em><em>Ŷ</em></span></p>
+<p>and hence <span
+class="math inline"><em>X̂</em><em>Ẑ</em><em>X̂</em> = −<em>Ẑ</em></span></p>
+</div>
+<h2 id="part-a">Part (a)</h2>
+<p><span class="math display">$$\begin{aligned}
+                \hat{X}\hat{Y} &amp;= \begin{bmatrix} 0 &amp; 1 \\ 1
+&amp; 0\end{bmatrix}\cdot \begin{bmatrix}0 &amp; -i \\ i &amp;
+0\end{bmatrix} \\
+                &amp;= \begin{bmatrix} i &amp; 0 \\ 0 &amp;
+-i\end{bmatrix} \\
+                &amp;= i\cdot \begin{bmatrix} 1 &amp; 0 \\ 0 &amp;
+-1\end{bmatrix} \\
+                &amp;= i\hat{Z}
+            
+\end{aligned}$$</span></p>
+<p><span class="math display">$$\begin{aligned}
+                \hat{Y}\hat{Z} &amp;= \begin{bmatrix} 0 &amp; -i \\ i
+&amp; 0\end{bmatrix}\cdot \begin{bmatrix}1 &amp; 0 \\ 0 &amp;
+-1\end{bmatrix} \\
+                &amp;= \begin{bmatrix} 0 &amp; i \\ i &amp;
+0\end{bmatrix} \\
+                &amp;= i\cdot \begin{bmatrix} 0 &amp; 1 \\ 0 &amp;
+1\end{bmatrix} \\
+                &amp;= i\hat{X}
+            
+\end{aligned}$$</span></p>
+<p><span class="math display">$$\begin{aligned}
+                \hat{X}\hat{Y} &amp;= \begin{bmatrix} 0 &amp; 1 \\ 1
+&amp; 0\end{bmatrix}\cdot \begin{bmatrix}1 &amp; 0 \\ 0 &amp;
+-1\end{bmatrix} \\
+                &amp;= \begin{bmatrix} 0 &amp; -1 \\ 1 &amp;
+0\end{bmatrix} \\
+                &amp;= i\cdot \begin{bmatrix} 0 &amp; -i \\ i &amp;
+0\end{bmatrix} \\
+                &amp;= i\hat{Y}
+            
+\end{aligned}$$</span></p>
+<h2 id="part-b">Part (b)</h2>
+<p>Substiute <span
+class="math inline"><em>Ẑ</em><em>X̂</em> = <em>i</em><em>Ŷ</em></span>.
+<span class="math display">$$\begin{aligned}
+                \hat{X}\hat{Z}\hat{X} &amp;= \hat{X}(i\hat{Y}) \\
+                &amp;= i\hat{X}\hat{Y} \\
+                &amp;\text{Substiute} \ \hat{X}\hat{Y} = i\hat{Z} \\
+                &amp;= i(i\hat{Z}) \\
+                &amp;= -\hat{Z}
+            
+\end{aligned}$$</span></p>
+<h1 id="question-3">Question 3</h1>
+<div class="mdframed">
+<p>A <em>unitary</em> matrix is a matrix whose inverse is equal to its
+Hermitian adjoint. (i.e take the transpose and the complex conjugate).
+Show that <span class="math display">$$\hat{U} = \begin{bmatrix} a &amp;
+b \\ -b^* &amp; a^* \end{bmatrix}$$</span></p>
+<p>Where (<span
+class="math inline">|<em>a</em>|<sup>2</sup> + |<em>b</em>|<sup>2</sup> = 1</span>)
+is unitary.</p>
+</div>
+<p>Find the Hermitian adjoint of <span
+class="math inline"><em>Û</em></span>. I.e we find <span
+class="math inline"><em>Û</em><sup>†</sup> = (<em>Û</em><sup><em>T</em></sup>)<sup>*</sup></span></p>
+<p><span class="math display">$$\begin{aligned}
+            \hat{U}^{\dagger} &amp;= (\hat{U}^T)^* \\
+            &amp;= \left(\begin{bmatrix} a &amp; b \\ -b^* &amp; a^*
+\end{bmatrix}^*\right)^T = \begin{bmatrix} a &amp; -b^* \\ b &amp; a^*
+\end{bmatrix}^* \\
+            &amp;= \begin{bmatrix} a^* &amp; -b \\ b^* &amp; a
+\end{bmatrix}
+        
+\end{aligned}$$</span></p>
+<p>Now, for a matrix to be unitary, it must mean that <span
+class="math inline"><em>Û</em><em>Û</em><sup>†</sup> = <em>I</em></span>.
+We can check this.</p>
+<p><span class="math display">$$\begin{aligned}
+            \begin{bmatrix} a &amp; b \\ -b^* &amp; a^*
+\end{bmatrix}\cdot\begin{bmatrix} a^* &amp; -b \\ b^* &amp; a
+\end{bmatrix} &amp;= \begin{bmatrix} aa^* + bb^* &amp; -ab - ba \\
+-b^*a^* + a^*b^* &amp; b^*b + a^*a \end{bmatrix} \\
+            &amp;= \begin{bmatrix} |a|^2 + |b|^2 &amp; 0 \\ 0 &amp;
+|a|^2 + |b|^2 \end{bmatrix} \\
+            &amp;= \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{bmatrix}
+        
+\end{aligned}$$</span></p>
+<p>Therefore, <span class="math inline"><em>Û</em></span> is
+unitary.</p>
+<h1 id="references">References</h1>
+</body>
+</html>
