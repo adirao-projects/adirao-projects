@@ -135,22 +135,63 @@
         // data-cal-namespace="misc"
         // `data-cal-config='{"layout":"month_view"}'`
         
-
         var style = getComputedStyle(document.body);
+        //var style = "dark";
 
+        console.log(style);
+
+        var themes_light = {
+            "cal-brand": style.accentColor,
+            "cal-text": style.color,
+            "cal-text-error": "#d35d6e",
+            "cal-bg-emphasis": style.backgroundColor,
+            "cal-border-booker-width": "3px",
+            "cal-white": "var(--text-primary)",
+            // More CSS variables are defined here
+            // https://github.com/calcom/cal.com/blob/b0ca7dae1a17f897e34b83c990f30ab65f615ee0/packages/config/tailwind-preset.js#L69
+          };
+
+        var themes_dark = {
+            "cal-brand": "#2D5794",
+            //"cal-text": "#EFE8D5",
+            //"cal-text-emphasis": "#1F1F1F",
+            //"cal-text-brand": "#EFE8D5",
+            //"cal-text-muted": "#F3F3F3",
+            "cal-text-error": "#d35d6e",
+            //"cal-bg-emphasis": "#F3F3F3",//"#2D5794",
+            //"cal-border-booker-width": "3px",
+            //"cal-white": "#EFE8D5",
+            //"cal-black": "#1F1F1F",
+            // More CSS variables are defined here
+            // https://github.com/calcom/cal.com/blob/b0ca7dae1a17f897e34b83c990f30ab65f615ee0/packages/config/tailwind-preset.js#L69
+          };
+
+        var cal_ui_data = {
+            theme: "dark",
+            hideEventTypeDetails: false,
+            cssVarsPerTheme: {
+              light: themes_light,
+              dark: themes_dark
+            },
+          }
+        Cal.ns.misc("ui", cal_ui_data);
+        Cal.ns.tutoring("ui", cal_ui_data);
+        Cal.ns.contracting("ui", cal_ui_data);
+
+        /*
         Cal.ns.misc("ui", {"theme": "light","styles":{
             "branding":{"brandColor":style.getPropertyValue('--theme-accent'),
                         "textColor":style.getPropertyValue('--text-primary'),
         }},"hideEventTypeDetails":false,"layout":"month_view"});
-        Cal.ns.tutoring("ui", {"theme": "light", "styles":{
-            "branding":{"brandColor":style.getPropertyValue('--theme-accent')
-            
-        }},"hideEventTypeDetails":false,"layout":"month_view"});
+        Cal.ns.tutoring("ui", {"theme": "light", cssVarsPerTheme: {
+            "cal-brand": "var(--theme-accent)",
+            "cal-text": "var(--text-primary)",
+        },"hideEventTypeDetails":false,"layout":"month_view"});
         Cal.ns.contracting("ui", {"styles":{
             "branding":{"brandColor":style.getPropertyValue('--theme-accent')
             
         }},"hideEventTypeDetails":false,"layout":"month_view"});
-
+        */
         
     </script>
     <!-- Cal element-click embed code begins -->
