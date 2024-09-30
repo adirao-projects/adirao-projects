@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Aditya K. Rao" />
+  <meta name="dcterms.date" content="2024-08-11" />
+  <title>Investigating Locality in Quantum Systems</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  
+
+    .abstract {
+       text-align: center; 
+    }
+</style>
+  <link rel="stylesheet" href="blog.css" />
+</head>
+<body class="light">
+<div id="theme">
+        <button id="theme-button" class="tooltip" onclick="toggleTheme()"></button>
+        </div>
+        <div id="content">
+        <h1>Aditya K. Rao</h1>        
+        <div id="nav-list">
+        <a class="project-link" href="index.html"><div class="nav-element" id="nav-home">Home</div></a>
+        <a class="project-link" href="resume.html"><div class="nav-element" id="nav-resume">Resume</div></a>
+        <a class="project-link" href="portfolio.html"><div class="nav-element" id="nav-portfolio">Portfolio</div></a>
+        <a class="project-link" href="blog.html"><div class="nav-element" id="nav-blog">Blog & Creative Work</div></a>
+        <a class="project-link" href="booking.html"><div class="nav-element" id="nav-book">Booking</div></a>
+        </div>
+        <div class="line"></div>
+<header id="title-block-header">
+<h1 class="title">Investigating Locality in Quantum Systems</h1>
+<p class="author">Aditya K. Rao</p>
+<p class="date">2024-08-11</p>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>One of the key mysteries of quantum mechanics is the apparent
+faster-than-light communication between entangled particles. This was
+one of the qualms highlighted by Einstein, Podolsky, and Rosen in their
+famous EPR paper. Here, the locality of quantum systems and quantum
+mechanics is analyzed with reference to the phenomena of quantum
+teleportation. It is found that while information appears as though it
+is propagating nonlocally, in reality it can be explained using a local
+theory. The ideas of a nonlocal correlation and nonlocal information
+must be separated. Particularly, the concept of locally hidden or
+inaccessible information within subsystems of a wider quantum system is
+explained. Furthermore, it is shown that while some hidden-variable
+theories are proposed, they are not experimentally conclusive and do not
+provide a complete or better explanation of quantum mechanics.</p>
+</div>
+</header>
+<h1 id="introduction">Introduction</h1>
+<p>The locality of quantum systems is itself curious and, in certain
+cases, ambiguous. In 1949 Einstein, Podolsky, and Rosen raised important
+questions as to whether quantum mechanics was complete as a local
+theory. In the EPR experiment <span class="citation"
+data-cites="epr">(<a href="#ref-epr" role="doc-biblioref">Einstein,
+Podolsky, and Rosen 1935</a>)</span>, quantum mechanics appeared to
+violate causality and special relativity. However, experimentally the
+theory of quantum mechanics still works. For example, consider quantum
+teleportation <span class="citation" data-cites="teleport">(<a
+href="#ref-teleport" role="doc-biblioref">Bennett et al.
+1993</a>)</span> with qubit states being teleported<a href="#fn1"
+class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> as
+far as 1200  km at <span class="math inline">82 ± 1%</span> fidelity
+<span class="citation" data-cites="long_range_teleport">(<a
+href="#ref-long_range_teleport" role="doc-biblioref">Li et al.
+2022</a>)</span>. Under careful scrutiny, one can verify that these
+seemingly instantaneous nonlocal interactions are truly still local <a
+href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a>. This article assumes a familiarity
+with core aspects of quantum mechanics such as pure states, entangled
+states, and superposition/wave functions. Furthermore, a
+na<span>ï</span>ve understanding of computer science, quantum computing,
+and information theory is recommended.</p>
+<h1 id="key-definitions-and-concepts">Key Definitions and Concepts</h1>
+<h2 id="defining-locality">Defining Locality</h2>
+<p>Later referred to as Einstein’s locality, a local interaction has to
+do with the idea of causality. Definition 1 was adapted from a talk by
+Alain Aspect <span class="citation" data-cites="aspect">(<a
+href="#ref-aspect" role="doc-biblioref">Aspect 2004</a>)</span>.
+Essentially, any interaction faster than light (space-like separated) is
+nonlocal and violates Einstein’s locality.</p>
+<div id="def:local" class="definition">
+<p><strong>Definition 1</strong>. <em>A local interaction is one in
+which two events happen at the same point in spacetime [Fig. 1(a)].
+Locality is also preserved in time-like separated events [Fig. 1(b)].
+Any other interaction [Fig. 1(c)] is nonlocal.</em></p>
+</div>
+<figure id="fig:light-cone">
+<figure id="fig:light-cone-l">
+
+<figcaption>Two events/interactions at the same spacetime location are
+<em>local</em>.</figcaption>
+</figure>
+<figure id="fig:light-cone-tl">
+
+<figcaption>Two time-like events separated by a distance <em>preserve
+Einstein’s locality condition</em>.</figcaption>
+</figure>
+<figure id="fig:light-cone-sl">
+
+<figcaption>Two space-like separated events are
+<em>nonlocal</em>.</figcaption>
+</figure>
+<figcaption>Causality in different contexts</figcaption>
+</figure>
+<h2 id="quantum-circuit-notation">Quantum Circuit Notation</h2>
+<p>This section serves as a brief overview of how to read a quantum
+circuit and the basic gates used in this paper. Quantum circuits are a
+method of visualizing the interactions on a qubit over time. Time in
+circuits propagates from left to right. Each qubit is referred to as
+<span class="math inline">ℚ<sub><em>n</em></sub></span> where <span
+class="math inline"><em>n</em></span> is the index of the qubit. Qubits
+are indexed from <em>bottom to top</em> in circuit diagrams and
+<em>right to left</em> in Dirac notation. In Fig. 2(c), the control
+qubit is <span class="math inline">ℚ<sub>0</sub></span> and the target
+qubit is <span class="math inline">ℚ<sub>1</sub></span>. Quantum gates
+such as <span
+class="math inline"><em>Ĥ</em>, <em>X̂</em>, <em>Ŷ</em>, <em>Ẑ</em>, and <em>Û</em></span>
+represent local unitaries that are all Hermitian. In the computation
+basis, otherwise known as a <code>spin-1/2</code> system <span
+class="math inline">$\left(\ket{0}, \ket{1}\right)$</span>, these are
+all represented as <span class="math inline">2 × 2</span> matrices. The
+three unitaries used in this paper are given below. <span
+class="math display">$$\begin{aligned}
+                \hat{X} &amp;= \begin{bmatrix}0 &amp; 1 \\1 &amp;
+0\end{bmatrix} \begin{cases}\hat{X}\ket{0} = \ket{1} \\ \hat{X}\ket{1} =
+\ket{0}\end{cases} &amp;
+                \hat{Z} &amp;= \begin{bmatrix}1 &amp; 0 \\0 &amp;
+-1\end{bmatrix}\begin{cases}\hat{Z}\ket{0} = \ket{0} \\ \hat{Z}\ket{1} =
+-\ket{1}\end{cases} &amp;
+                \hat{H} &amp;= \frac{1}{\sqrt{2}}\begin{bmatrix}1 &amp;
+1 \\1 &amp; -1\end{bmatrix}\begin{cases}\hat{H}\ket{0}
+=\frac{\ket{0}+\ket{1}}{\sqrt{2}} \\ \hat{H}\ket{1} =
+\frac{\ket{0}-\ket{1}}{\sqrt{2}}\end{cases}
+            
+\end{aligned}$$</span> The matrix representation, for the most part, can
+be ignored as their operation is of greater interest. Another important
+gate is the <code>CNOT</code> gate, also known as a <em>perfect
+measurement</em>, which can be used to create an entangled state. In
+short, a <code>CNOT</code> measures the state of a qubit <span
+class="math inline">ℚ<sub><em>A</em></sub></span> (the control,
+represented by a dot) and uses that to change the state of <span
+class="math inline">ℚ<sub><em>B</em></sub></span> (the target,
+represented by <span class="math inline">⊕</span>). A <code>CNOT</code>
+gate applies a <span class="math inline"><em>X̂</em></span> gate if the
+first state (the control) is in a state <span
+class="math inline">$\ket{1}$</span>; otherwise, it does nothing. This
+is represented in Dirac notation. Note that below, the target qubit is
+rightmost while the control qubit is leftmost. The circuit
+representation of each of these gates is shown in Fig. <a
+href="#fig:gates" data-reference-type="ref"
+data-reference="fig:gates">8</a>. <span
+class="math display">$$\begin{aligned}
+                \texttt{MEASUREMENT} &amp;= \ket{0}\bra{0} +
+\ket{1}\bra{1} \quad&amp;\quad
+                \texttt{CNOT} &amp;= \ket{0}\bra{0}\otimes\hat{I} +
+\ket{1}\bra{1}\otimes\hat{X}
+                \begin{cases}
+                \texttt{CNOT}(\ket{00}) = \ket{00} \\
+                \texttt{CNOT}(\ket{10}) = \ket{11} \\
+                \texttt{CNOT}(\ket{01}) = \ket{01} \\
+                \texttt{CNOT}(\ket{11}) = \ket{10}
+                \end{cases}
+            
+\end{aligned}$$</span></p>
+<figure id="fig:gates">
+<figure id="fig:unitary-gate">
+<div class="quantikz">
+<p>&amp; &amp;</p>
+</div>
+<figcaption>Local unitary (substitute <span
+class="math inline"><em>U</em></span> for <span
+class="math inline"><em>X</em></span>, <span
+class="math inline"><em>Y</em></span>, <span
+class="math inline"><em>Z</em></span>, or <span
+class="math inline"><em>H</em></span> for the desired
+unitary).</figcaption>
+</figure>
+<figure id="fig:meter-gate">
+<div class="quantikz">
+<p>&amp; &amp;</p>
+</div>
+<figcaption>Measurement operation. After measurement, the state
+collapses into a classical bit represented by the double
+wires.</figcaption>
+</figure>
+<figure id="fig:cnot-gate">
+<div class="quantikz">
+<p>&amp; &amp;<br />
+&amp; &amp;</p>
+</div>
+<figcaption>Controlled-NOT gate, the control is the black dot and the
+target is the <span class="math inline">⊕</span>. The <span
+class="math inline">⊕ = <em>X̂</em></span> by convention. The output is
+no longer necessarily a pure state.</figcaption>
+</figure>
+<figcaption>Circuit representation of quantum gates used.</figcaption>
+</figure>
+<h1
+id="the-epr-experiment-quantum-teleportation-and-the-apparent-violation-of-locality">The
+EPR Experiment, Quantum Teleportation, and the apparent violation of
+locality</h1>
+<h2
+id="einstein-podolsky-rosen-gedanken-experiment">Einstein-Podolsky-Rosen
+Gedanken Experiment</h2>
+<p>Einstein, Podolsky, and Rosen believed that quantum mechanics was
+incomplete as a theory of physics <span class="citation"
+data-cites="epr">(<a href="#ref-epr" role="doc-biblioref">Einstein,
+Podolsky, and Rosen 1935</a>)</span>. In their famous EPR paper, they
+outlined a so-called gedanken (thought) experiment. Generally, one
+considers two entangled particles <span
+class="math inline">ℚ<sub>1</sub></span> and <span
+class="math inline">ℚ<sub>2</sub></span> in a polarization state given
+by Eq. <a href="#eqn:epr" data-reference-type="eqref"
+data-reference="eqn:epr">[eqn:epr]</a>. <span
+class="math display">$$\label{eqn:epr}
+        \ket{\psi} = \frac{1}{\sqrt{2}}\left(\ket{00} +
+\ket{11}\right)$$</span> These are known as EPR pairs or Bell states
+(there are variations of these states). An EPR pair can be created by a
+Hadamard gate (<span class="math inline"><em>Ĥ</em></span>) and a
+<code>CNOT</code> gate as shown in Fig. <a href="#fig:teleport"
+data-reference-type="ref" data-reference="fig:teleport">9</a> (between
+<span class="math inline">$\ket{\psi_0}$</span> and <span
+class="math inline">$\ket{\psi_1}$</span>). This is important later in
+the paper, however, for now, it is important to understand the
+implications of the EPR experiment. <span
+class="math display">$$\begin{aligned}
+        \texttt{MEASUREMENT}_{\ket{0}_0} \ket{\psi} &amp;=
+(\ket{0}_0\bra{0}_0)\left(\frac{1}{\sqrt{2}}(\ket{0}_1\ket{0}_0 +
+\ket{1}_1\ket{1}_0)\right) \\
+        &amp;= \frac{1}{\sqrt{2}} \ket{00} \label{eqn:epr-meter}
+    
+\end{aligned}$$</span> Upon performing a measurement on <span
+class="math inline">ℚ<sub>0</sub></span>, its state collapses which can
+be seen in Eq. <a href="#eqn:epr-meter" data-reference-type="eqref"
+data-reference="eqn:epr-meter">[eqn:epr-meter]</a>. This in itself is
+not an issue; what is more interesting is that <span
+class="math inline">ℚ<sub>1</sub></span> also collapses despite never
+being measured. Einstein called this “spooky action at a distance.”
+These correlations seem to violate Einstein’s locality condition, as a
+measurement on <span class="math inline">ℚ<sub>0</sub></span> seems to
+have an <em>instantaneous</em> influence on <span
+class="math inline">ℚ<sub>1</sub></span>.</p>
+<p>Einstein’s main qualm was the apparent violation of special
+relativity and the interpretation of locality outlined in Definition 1,
+as there is seemingly faster-than-light communication. This led
+Einstein, Podolsky, and Rosen to assert that quantum mechanics was an
+incomplete theory of physics. One of the proposed solutions was the idea
+of a <em>hidden-variable theory</em>. As is later discussed, this is not
+the case and the apparent nonlocality can be explained using a local
+theory.</p>
+<h2 id="quantum-teleportation">Quantum Teleportation</h2>
+<p>Known as “quantum teleportation,” an EPR pair can be used to move
+(teleport) a prepared pure quantum state from one qubit to another, as
+seen in Fig. <a href="#fig:teleport" data-reference-type="ref"
+data-reference="fig:teleport">9</a>. Interestingly, without interacting
+with <span class="math inline">ℚ<sub>0</sub></span>, the state of <span
+class="math inline">ℚ<sub>2</sub></span> can be teleported to <span
+class="math inline">ℚ<sub>0</sub></span> seemingly nonlocally.</p>
+<figure id="fig:teleport">
+<div class="quantikz">
+<p>&amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp;<br />
+&amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp;<br />
+&amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp;</p>
+</div>
+<figcaption>Quantum teleportation circuit as described (with
+modification) by Nielson and Chuang <span class="citation"
+data-cites="nielsen_chuang_2010">(<a href="#ref-nielsen_chuang_2010"
+role="doc-biblioref">Nielsen and Chuang 2010</a>)</span>. The first
+Hadamard (<span class="math inline"><em>Ĥ</em></span>) and CNOT gates
+describe the creation of a Bell state.</figcaption>
+</figure>
+<p>In order see the state teleportation, the mathematics will explicitly
+be shown at each key step. Each local interaction (Definition 1) is
+assumed to take an arbitrary constant time, no matter the complexity of
+the gate. For clarity, the state to be teleported is <span
+class="math inline">$\ket{\varphi}$</span>, whereas the global state of
+the system is denoted by <span
+class="math inline">$\ket{\psi_{t}}$</span>, where <span
+class="math inline"><em>t</em></span> is the global state after some
+number of time steps. Generally, <span
+class="math inline">$\ket{\varphi}$</span> can be represented in Eq. <a
+href="#eqn:general-initial-state" data-reference-type="eqref"
+data-reference="eqn:general-initial-state">[eqn:general-initial-state]</a>,
+<span class="math display">$$\label{eqn:general-initial-state}
+        \ket{\varphi} = \alpha\ket{0} + \beta\ket{1},$$</span> where
+<span class="math inline">$\ket{0}$</span> and <span
+class="math inline">$\ket{1}$</span> are the basis of the
+<code>spin-1/2</code> system. The initial global state <span
+class="math inline">$\ket{\psi_0}$</span> can hence be represented in
+Eq. <a href="#eqn:global-state-0" data-reference-type="eqref"
+data-reference="eqn:global-state-0">[eqn:global-state-0]</a>. Note that
+the subscripts represent the qubit index. <span
+class="math display">$$\begin{aligned}
+        \ket{\psi_0} &amp;= \ket{\varphi}_2\ket{0}_1\ket{0}_0 \
+\text{(Qubit index explicitly noted)} \\
+        &amp;= \alpha\ket{0}_{2}\ket{0}_{1}\ket{0}_{0} +
+\beta\ket{1}_{2}\ket{0}_{1}\ket{0}_{0} \\
+        &amp;= \alpha\ket{000} + \beta\ket{100}
+\label{eqn:global-state-0}
+    
+\end{aligned}$$</span> Now induce an EPR pair as done previously <a
+href="#fn3" class="footnote-ref" id="fnref3"
+role="doc-noteref"><sup>3</sup></a>, using a Hadamard gate and a CNOT
+gate (controlled <span class="math inline"><em>X</em></span> gate). This
+can be seen in Eq. <a href="#eqn:global-state-1"
+data-reference-type="eqref"
+data-reference="eqn:global-state-1">[eqn:global-state-1]</a>. <span
+class="math display">$$\begin{aligned}
+        \ket{\psi_1} &amp;= \texttt{CNOT}\ \hat{H}\{\alpha\ket{000} +
+\beta\ket{100}\} \\
+        &amp;=
+\texttt{CNOT}\{\frac{\alpha}{\sqrt{2}}\ket{0}(\ket{0}+\ket{1})\ket{0} +
+\frac{\beta}{\sqrt{2}}\ket{1}(\ket{0}+\ket{1})\ket{0}\} \\
+        &amp;=
+\frac{1}{\sqrt{2}}(\ket{0}\bra{0}\otimes\hat{I}+\ket{1}\bra{1}\otimes\hat{X})\{\alpha\ket{000}
++ \alpha\ket{010} + \beta\ket{100} + \beta\ket{110}\}
+\label{eqn:global-state-1-intermediate} \\
+        &amp;= \frac{1}{\sqrt{2}}\{\alpha\ket{000} + \alpha\ket{011} +
+\beta\ket{100} + \beta\ket{111}\} \label{eqn:global-state-1}
+    
+\end{aligned}$$</span> Once an EPR pair has been prepared, <span
+class="math inline">ℚ<sub>0</sub></span> can be separated by an
+arbitrary distance from <span class="math inline">ℚ<sub>1</sub></span>
+and <span class="math inline">ℚ<sub>2</sub></span>. In order to teleport
+the state of <span class="math inline">$\mathbb{Q}_2 =
+\ket{\varphi}$</span> to <span class="math inline">ℚ<sub>0</sub></span>,
+there is an additional interaction on <span
+class="math inline">ℚ<sub>2</sub></span> and <span
+class="math inline">ℚ<sub>1</sub></span> (note no interactions on <span
+class="math inline">ℚ<sub>0</sub></span>). This is <span
+class="math inline">$\ket{\psi_2}$</span> and is calculated in Eq. <a
+href="#eqn:global-state-2" data-reference-type="eqref"
+data-reference="eqn:global-state-2">[eqn:global-state-2]</a>. <span
+class="math display">$$\begin{aligned}
+        \ket{\psi_2} &amp;= \frac{1}{\sqrt{2}}\hat{H}\
+\texttt{CNOT}\{\alpha\ket{000} + \alpha\ket{011} \beta\ket{100} +
+\beta\ket{111}\} \\
+        %&amp;= \frac{1}{\sqrt{2}}\hat{H} \{\alpha\ket{000} +
+\alpha\ket{011} \beta\ket{110} + \beta\ket{101}\} \\
+        %&amp;= \frac{1}{2} \{\alpha(\ket{0}+\ket{1})\ket{00} +
+\alpha(\ket{0}+\ket{1})\ket{11} \beta(\ket{0}-\ket{1})\ket{10} +
+\beta(\ket{0}-\ket{1})\ket{01}\} \\
+        &amp;= \frac{1}{2} \{\alpha\ket{000} + \alpha\ket{100} +
+\alpha\ket{011}+\alpha\ket{111} + \beta\ket{010}-\beta\ket{110} +
+\beta\ket{001} -\beta\ket{101}\} \label{eqn:global-state-2}
+    
+\end{aligned}$$</span> At this point the teleportation is completed.
+This can be explicitly seen through rearrangement in Eq. <a
+href="#eqn:global-state-2-re" data-reference-type="eqref"
+data-reference="eqn:global-state-2-re">[eqn:global-state-2-re]</a>. The
+final controlled measurements are meant as a correction for flipping and
+changing signs to obtain exactly <span
+class="math inline">$\ket{\varphi}$</span>. <span
+class="math display">$$\begin{aligned}
+        \ket{\psi_2} &amp;= \frac{1}{2} \{\ket{00}(\alpha\ket{0} +
+\beta\ket{1}) + \ket{10}(\alpha\ket{0} - \beta\ket{1}) +
+\ket{01}(\alpha\ket{1}+\beta\ket{0})+\ket{11}(\alpha\ket{1}-\beta\ket{0})\}
+\\
+        &amp;= \frac{1}{2}\{\ket{00}(\ket{\varphi}) +
+\ket{10}(\hat{Z}\ket{\varphi}) +
+\ket{01}(\hat{X}\ket{\varphi})+\ket{11}(\hat{X}\hat{Z}\ket{\varphi})\}
+\label{eqn:global-state-2-re}
+        %&amp;= \frac{1}{2}\{\ket{0}_2\ket{0}_1(\ket{\varphi}_0) +
+\ket{1}_2\ket{0}_1(\hat{Z}\ket{\varphi}_0) +
+\ket{0}_2\ket{1}_1(\hat{X}\ket{\varphi}_0)+\ket{1}_2\ket{1}_1(\hat{X}\hat{Z}\ket{\varphi}_0)\}  \
+\text{(Qubit indices explicitly noted)}
+    
+\end{aligned}$$</span> Notice that in Eq. <a
+href="#eqn:global-state-2-re" data-reference-type="eqref"
+data-reference="eqn:global-state-2-re">[eqn:global-state-2-re]</a> the
+state <em>appears to have been transmitted nonlocally</em> from <span
+class="math inline">ℚ<sub>2</sub></span> to <span
+class="math inline">ℚ<sub>0</sub></span>, seemingly violating Einstein’s
+locality condition. <em>However, through the final correction
+measurements, locality is preserved</em>. As such, no information is
+transmitted prior to the correction measurement. This is the key point
+in understanding the locality of quantum mechanics.</p>
+<h1 id="locality-bells-inequalities-and-hidden-variables">Locality,
+Bell’s Inequalities, and Hidden variables</h1>
+<h2 id="locality-of-epr-and-quantum-teleportation">Locality of EPR and
+Quantum Teleportation</h2>
+<p>The teleportation example shown in Fig. <a href="#fig:teleport"
+data-reference-type="ref" data-reference="fig:teleport">9</a> and the
+corresponding calculations seem unintuitive and suggest that there is
+some nonlocal interaction between qubits. However, the
+Schr<span>ö</span>dinger approach for calculations is itself ambiguous.
+Analyzing the calculations<a href="#fn4" class="footnote-ref"
+id="fnref4" role="doc-noteref"><sup>4</sup></a> done by Deustch and
+Hayden <span class="citation" data-cites="Deutsch_2000">(<a
+href="#ref-Deutsch_2000" role="doc-biblioref">Deutsch and Hayden
+2000</a>)</span>, one can see that, in reality, the information does not
+magically appear at <span class="math inline">ℚ<sub>0</sub></span>;
+instead, at <span class="math inline"><em>t</em> = 2</span> the
+information is carried from <span
+class="math inline">ℚ<sub>2</sub></span> to <span
+class="math inline">ℚ<sub>0</sub></span> prosaically.</p>
+<p>However, it is rather curious that the information never fully
+reveals itself when in <span class="math inline">ℚ<sub>1</sub></span>
+and is, in a way, <em>locally inaccessible</em> <span class="citation"
+data-cites="Deutsch_2000">(<a href="#ref-Deutsch_2000"
+role="doc-biblioref">Deutsch and Hayden 2000</a>)</span>. This is often
+confused for a nonlocal interaction, when in actuality the link between
+these subsystems carries some information as well.</p>
+<p>This is not a purely quantum phenomena; in fact, one can imagine this
+in action in a classical cryptography example from Deutsch and Hayden
+<span class="citation" data-cites="Deutsch_2000">(<a
+href="#ref-Deutsch_2000" role="doc-biblioref">Deutsch and Hayden
+2000</a>)</span>. Imagine a binary key <span
+class="math inline"><em>K</em></span> is exchanged by two individuals,
+Alice and Bob. Once the key has been exchanged, Alice moves to a new
+isolated location and creates a message <span
+class="math inline"><em>M</em></span> and encrypts it with <span
+class="math inline"><em>K</em></span> such that <span
+class="math inline"><em>E</em> = <em>K</em> ⊕ <em>M</em></span>, where
+<span class="math inline">⊕</span> is addition modulo two (also referred
+to as <code>XOR</code>), and discards the original message and key. The
+message did not simply disappear and teleport out of Alice’s system; it
+is only locally inaccessible so Alice cannot decrypt it. One just needs
+both the key <span class="math inline"><em>K</em></span> from Bob and
+the encrypted message <span class="math inline"><em>E</em></span> from
+Alice to deconstruct and find <span
+class="math inline"><em>M</em></span>, satisfying <span
+class="math inline"><em>K</em> = <em>M</em> ⊕ <em>E</em> ⇔ <em>E</em> = <em>M</em> ⊕ <em>K</em></span>.</p>
+<p>In Fig. <a href="#fig:teleport" data-reference-type="ref"
+data-reference="fig:teleport">9</a>, the encrypted message is that in
+<span class="math inline">ℚ<sub>0</sub></span>, whereas the key is the
+corrections obtained by performing measurements on <span
+class="math inline">ℚ<sub>2</sub></span> and <span
+class="math inline">ℚ<sub>1</sub></span> <span class="citation"
+data-cites="nielsen_chuang_2010">(<a href="#ref-nielsen_chuang_2010"
+role="doc-biblioref">Nielsen and Chuang 2010</a>)</span>. This locally
+inaccessible information is often misinterpreted as nonlocality when is
+is simply information that requires multiple systems to decode.
+Therefore, in order to properly understand quantum mechanics information
+in these quantum systems, one must adopt the idea of locality and
+locally inaccessible information. However, the EPR state has some
+<em>nonlocal correlations</em>. The key point is that these correlations
+are not information and cannot be used to transmit information faster
+than light, preserving Einstein’s locality <span class="citation"
+data-cites="aspect">(<a href="#ref-aspect" role="doc-biblioref">Aspect
+2004</a>)</span>.</p>
+<h2
+id="bells-inequalities-and-other-locally-hidden-variable-theories">Bell’s
+Inequalities and Other Locally-Hidden Variable Theories</h2>
+<h3 id="bells-inequalities">Bell’s Inequalities</h3>
+<p>John Bell proposed a set of inequalities to formally test the
+locality of quantum mechanics. Without going into the derivation, the
+so-called C.H.S.H. inequalities <a href="#fn5" class="footnote-ref"
+id="fnref5" role="doc-noteref"><sup>5</sup></a> <span class="citation"
+data-cites="chsh">(<a href="#ref-chsh" role="doc-biblioref">Clauser et
+al. 1969</a>)</span> are stated in Eq. <a href="#eqn:chsh"
+data-reference-type="eqref" data-reference="eqn:chsh">[eqn:chsh]</a>.
+These are a generalization of Bell’s inequalities and are used to test
+the locality of quantum mechanics.</p>
+<p>Consider that the experiment does indeed depend on some hidden
+variable <span class="math inline"><em>λ</em></span>, and that the
+outcome of the experiment is dependent on the orientation of the
+measurement apparatus. <span
+class="math display">|<em>E</em>(<em>λ</em>, <em>a</em>, <em>b</em>′) + <em>E</em>(<em>λ</em>, <em>a</em>′, <em>b</em>) + <em>E</em>(<em>λ</em>, <em>a</em>′, <em>b</em>′) − <em>E</em>(<em>λ</em>, <em>a</em>, <em>b</em>)| ≤ 2,</span>
+where <span
+class="math inline"><em>E</em>(<em>a</em>, <em>b</em>)</span> is the
+expectation value of a measurement with orientation <span
+class="math inline"><em>a</em></span> of a polarizer on <span
+class="math inline">ℚ<sub><em>A</em></sub></span> and <span
+class="math inline"><em>b</em></span> on <span
+class="math inline">ℚ<sub><em>B</em></sub></span>. One can read more
+about this in <span class="citation" data-cites="aspect">(<a
+href="#ref-aspect" role="doc-biblioref">Aspect 2004</a>)</span>.</p>
+<p>It has been confirmed experimentally that the C.H.S.H. inequalities
+can be violated, showing that hidden-variable theories do not provide a
+complete explanation of quantum mechanics. Through so-called
+<em>timing</em> experiments, it has been shown that the outcome of
+measurements is independent of the orientation of the measurement
+apparatus. Furthermore, to each observer located at <span
+class="math inline">ℚ<sub><em>A</em></sub></span> and <span
+class="math inline">ℚ<sub><em>B</em></sub></span>, the measurement
+outcomes look random and independent and only are identified as
+correlated after classical information exchange. Therefore, no
+<em>information</em> was transmitted faster than light, though there
+were nonlocal <em>correlations</em>. This is a key, but subtle,
+distinction.</p>
+<h3 id="other-hidden-variable-theories">Other Hidden-Variable
+Theories</h3>
+<p>Hidden-variable theories are still investigated by some as an
+explanation for this phenomena and will briefly be mentioned. Nagasawa
+more rigorously defines a local hidden-variable theory using a variation
+of <strong>Definition <a href="#def:hidden-variable"
+data-reference-type="ref"
+data-reference="def:hidden-variable">2</a></strong>.</p>
+<div id="def:hidden-variable" class="definition">
+<p><strong>Definition 2</strong>. <em>A theory is a <em>hidden-variable
+theory</em> of quantum mechanics if it provides a probability <span
+class="math inline"><em>P</em></span> and a random variable <span
+class="math inline"><em>h</em><sub><em>B</em></sub></span>, such that
+<span class="math inline"><em>P</em></span> is directly influenced by
+<span
+class="math inline"><em>h</em><sub><em>B</em></sub></span>.</em></p>
+</div>
+<p>Nagasawa argues that the locality conditions enforced by Bell are
+unnecessarily restrictive. In particular, the so-called <em>single
+measure hypothesis</em> is restrictive, and the setting/experiment
+itself could determine the outcome of a measurement. He went on to prove
+that a hidden-variable theory satisfying his new definitions could be a
+local hidden variable.</p>
+<p>Experimentally, Zhao <span class="citation"
+data-cites="zhao_2013">(<a href="#ref-zhao_2013"
+role="doc-biblioref">Zhao 2013</a>)</span> showed that while this theory
+is not necessarily wrong, it does not predict anything different from
+what is already expected from the current theory of quantum mechanics.
+Therefore, Zhao concluded that there is not enough evidence for the
+theory of hidden local variables proposed by Nagasawa to be accepted in
+understanding locality and the inaccessible/hidden information explained
+by Deustch and Hayden <span class="citation"
+data-cites="Deutsch_2000">(<a href="#ref-Deutsch_2000"
+role="doc-biblioref">Deutsch and Hayden 2000</a>)</span>. Furthermore,
+fundamentally refuting the <em>single-measure hypothesis</em> is in
+itself denying Bell’s inequalities. In short, such a theory yields
+itself to the question, Why not quantum mechanics? which is more elegant
+and experimentally supported <span class="citation"
+data-cites="aspect">(<a href="#ref-aspect" role="doc-biblioref">Aspect
+2004</a>)</span>.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>Quantum mechanics, while seemingly behaving in a nonlocal manner, is
+still quite clearly a local theory and can only be truly understood as
+such. Although there have been efforts to establish a local
+hidden-variable theory <span class="citation"
+data-cites="nagasawa_1997">(<a href="#ref-nagasawa_1997"
+role="doc-biblioref">Nagasawa 1997</a>)</span>, the merits of these
+theories are not experimentally conclusive <span class="citation"
+data-cites="zhao_2013">(<a href="#ref-zhao_2013"
+role="doc-biblioref">Zhao 2013</a>)</span>.</p>
+<p>One can reconcile the apparent nonlocality of quantum mechanics by
+combining the two ideas of <em>nonlocal correlations</em> and
+<em>locally inaccessible information</em>. In the quantum teleportation
+example, the information of <span
+class="math inline">ℚ<sub>2</sub></span> is propagated through <span
+class="math inline">ℚ<sub>1</sub></span> to <span
+class="math inline">ℚ<sub>0</sub></span>. Effectively, information is
+still contained in these systems; it is not magically propagated faster
+than light. Rather, the information is encoded between each subsystem.
+That is, the information encoded in one system requires another to be
+fully extracted <span class="citation" data-cites="Deutsch_2000">(<a
+href="#ref-Deutsch_2000" role="doc-biblioref">Deutsch and Hayden
+2000</a>)</span>. In this way, the locality of quantum mechanics is
+preserved and the apparent nonlocality is reconciled.</p>
+<div class="acknowledgments">
+<p>The author acknowledges the support of various professors in the
+Department of Physics at the University of Toronto, and in particular,
+Professor D.F.V. James (SPS Advisor) and Professor A.M. Steinberg for
+their encouragement and guidance. Additionally, Professor B. Wilson and
+Professor M.E. Luke for their willingness to provide clarity and
+assistance related to this work. Moreover, at the 2024 Welsh Series
+Lectures (University of Toronto), the talk by A. Aspect provided great
+insights into the idea of locality and how to explain it to a broader
+audience. Finally, the undergraduate students of the University of
+Toronto Physics Student Union (PhySU) provided valuable insights and
+feedback.</p>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" role="list">
+<div id="ref-aspect" class="csl-entry" role="listitem">
+Aspect, Alain. 2004. <span>“Bell’s Theorem : The Naive View of an
+Experimentalist.”</span> <a
+href="https://arxiv.org/abs/quant-ph/0402001">https://arxiv.org/abs/quant-ph/0402001</a>.
+</div>
+<div id="ref-teleport" class="csl-entry" role="listitem">
+Bennett, Charles H., Gilles Brassard, Claude Crépeau, Richard Jozsa,
+Asher Peres, and William K. Wootters. 1993. <span>“Teleporting an
+Unknown Quantum State via Dual Classical and Einstein-Podolsky-Rosen
+Channels.”</span> <em>Phys. Rev. Lett.</em> 70 (March): 1895–99. <a
+href="https://doi.org/10.1103/PhysRevLett.70.1895">https://doi.org/10.1103/PhysRevLett.70.1895</a>.
+</div>
+<div id="ref-chsh" class="csl-entry" role="listitem">
+Clauser, John F., Michael A. Horne, Abner Shimony, and Richard A. Holt.
+1969. <span>“Proposed Experiment to Test Local Hidden-Variable
+Theories.”</span> <em>Phys. Rev. Lett.</em> 23 (October): 880–84. <a
+href="https://doi.org/10.1103/PhysRevLett.23.880">https://doi.org/10.1103/PhysRevLett.23.880</a>.
+</div>
+<div id="ref-Deutsch_2000" class="csl-entry" role="listitem">
+Deutsch, David, and Patrick Hayden. 2000. <span>“Information Flow in
+Entangled Quantum Systems.”</span> <em>Proc. R. Soc. London, Ser. A</em>
+456 (1999): 1759–74. <a
+href="https://doi.org/10.1098/rspa.2000.0585">https://doi.org/10.1098/rspa.2000.0585</a>.
+</div>
+<div id="ref-epr" class="csl-entry" role="listitem">
+Einstein, A., B. Podolsky, and N. Rosen. 1935. <span>“Can
+Quantum-Mechanical Description of Physical Reality Be Considered
+Complete?”</span> <em>Phys. Rev.</em> 47 (May): 777–80. <a
+href="https://doi.org/10.1103/PhysRev.47.777">https://doi.org/10.1103/PhysRev.47.777</a>.
+</div>
+<div id="ref-Hirsch_2013" class="csl-entry" role="listitem">
+Hirsch, Flavien, Marco Túlio Quintino, Joseph Bowles, and Nicolas
+Brunner. 2013. <span>“Genuine Hidden Quantum Nonlocality.”</span>
+<em>Phys. Rev. Letters</em> 111 (16). <a
+href="http://dx.doi.org/10.1103/PhysRevLett.111.160402">http://dx.doi.org/10.1103/PhysRevLett.111.160402</a>.
+</div>
+<div id="ref-long_range_teleport" class="csl-entry" role="listitem">
+Li, Bo, Yuan Cao, Yu-Huai Li, Wen-Qi Cai, Wei-Yue Liu, Ji-Gang Ren,
+Sheng-Kai Liao, et al. 2022. <span>“Quantum State Transfer over 1200 Km
+Assisted by Prior Distributed Entanglement.”</span> <em>Phys. Rev.
+Lett.</em> 128 (April): 170501. <a
+href="https://doi.org/10.1103/PhysRevLett.128.170501">https://doi.org/10.1103/PhysRevLett.128.170501</a>.
+</div>
+<div id="ref-mcintyre_2022" class="csl-entry" role="listitem">
+McIntyre, David H. 2022. <em>Quantum Mechanics</em>. Cambridge
+University Press, Cambridge.
+</div>
+<div id="ref-nagasawa_1997" class="csl-entry" role="listitem">
+Nagasawa, Masao. 1997. <span>“On the Locality of Hidden-Variable
+Theories in Quantum Physics.”</span> <em>Chaos, Solitons Fractals</em> 8
+(11): 1773–92. https://doi.org/<a
+href="https://doi.org/10.1016/s0960-0779(97)00036-2">https://doi.org/10.1016/s0960-0779(97)00036-2</a>.
+</div>
+<div id="ref-nielsen_chuang_2010" class="csl-entry" role="listitem">
+Nielsen, Michael A, and Isaac L Chuang. 2010. <em>Quantum Computation
+and Quantum Information</em>. Cambridge University Press, Cambridge.
+</div>
+<div id="ref-zhao_2013" class="csl-entry" role="listitem">
+Zhao, H L. 2013. <span>“On the Implication of Bell’s Probability
+Distribution and Proposed Experiments of Quantum Measurement.”</span>
+<em>J. Exp. Theor. Phys.</em> 117 (6): 999–1010. https://doi.org/<a
+href="https://doi.org/10.1134/s1063776113140070">https://doi.org/10.1134/s1063776113140070</a>.
+</div>
+</div>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>In this specific example the Bell state mediating the
+teleportation was created prior to being distributed to a satellite in
+low-Earth-orbit.<a href="#fnref1" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>The locality in this paper is Einsteinian locality
+(causality)<a href="#fnref2" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Also known as a Bell state or an entangled state<a
+href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>These calculations are done using the Heisenberg picture
+of quantum mechanics. Effectively, the feign of nonlocality is
+especially prevalent when analyzing interactions in quantum circuits
+using the Schr<span>ö</span>dinger picture, however, “the Heisenberg
+picture makes explicit what is implicit...in the
+Schr<span>ö</span>dinger picture” <span class="citation"
+data-cites="Deutsch_2000">(<a href="#ref-Deutsch_2000"
+role="doc-biblioref">Deutsch and Hayden 2000, 23</a>)</span>.<a
+href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>C.H.S.H. stands for Clauser, Horne, Shimony, and Holt.<a
+href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>

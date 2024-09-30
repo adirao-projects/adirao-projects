@@ -67,33 +67,6 @@
     /* border:2px dashed var(--theme-accent); */
 }
 
-/* Medium screens */
-@media screen and (min-width: 600px) {
-    .author-image {
-        width: 30rem;
-        margin-right: 2%;
-        float: left;
-    }
-    .card-tall {
-        grid-row: span 2 / auto;
-    }
-    .card-very-tall {
-        grid-row: span 3 / auto;
-    }
-    .card-wide {
-        grid-column: span 2 / auto;
-    }
-    .card-very-wide {
-        grid-column: span 3 / auto;
-    }
-    body {
-        padding-top: 2rem;
-    }
-    #content {
-        padding-top: 5rem;
-    }
-}
-
 #overview {
     display: grid;
     grid-template-columns: 80% 20%;
