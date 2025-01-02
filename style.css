@@ -492,4 +492,13 @@ footer{
     #picture {
         width: 70%;
     }
+    .author-about p {
+        font-size: 1rem;
+        text-align: left;
+    }
+}
+
+.author-about p {
+    font-size: 1.5rem;
+    text-align: left;
 }
