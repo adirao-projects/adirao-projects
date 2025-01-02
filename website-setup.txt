@@ -1,8 +1,9 @@
 -> [adirao.tech] adirao-projects (resume and links to subdomains)
 	-> [how2code] JS book (javascript book project)
-	-> [puls-e] Blog (blog about interesting things and projects, maybe should be split? not sure just yet)
+	-> [plus-e] Blog (blog about interesting things and projects, maybe should be split? not sure just yet)
 		-> [*] *Research paper digest
 	-> [anthology] Short Stories (If I decide to write short stories or something)
 	-> [appraisels] Reviews (Reviews about stuff)
 	-> [cop] Course on Physics (Dumbing down physics so it's intuitive)
 	-> [campaign] Governing Council Website (Idk if this is still useful)
+
