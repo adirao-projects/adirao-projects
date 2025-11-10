@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-	<title>Gianmarco Cavallo - Main page</title>
+	<title>Aditya K. Rao - Home Page</title>
 </svelte:head>
 <main>
 	<h1>Hi!✋ <br /> I'm Gianmarco a Front-End Developer 💻 based in Italy</h1>

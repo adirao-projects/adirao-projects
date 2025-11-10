@@ -3,17 +3,19 @@
 </script>
 
 <svelte:head>
-	<title>Gianmarco Cavallo — About</title>
+	<title>Aditya K. Rao — About</title>
 </svelte:head>
 
 <div class="container">
 	<main>
 		<h1>About</h1>
-		<p>
-			I'm a Software developer with over 2 years of front-end development experience, experienced in
-			both enterprise and open-source software development. I'm based in Italy and currently working
-			as a freelancer and coding in Node.js, React.js (and other web technologies) and Go(lang), but
-			I tend to learn and use the best technology and approach to best solve the problem I'm facing.
+		<p>			
+			I'm a researcher in experimental quantum optics and computational 
+			quantum information/algorithms. I am currently wrapping up my H.BSc.
+			at the University of Toronto but am currently looking for next steps
+			(Jobs... Grad school???). I'm always happy to connect, collaberate,
+			and generally just build cool sh*t.
+            </p>
 		</p>
 		<h2>Skills</h2>
 		{#each Object.entries(skills) as [section, technologies]}
